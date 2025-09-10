@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c21v2tcsnb6gs"]
+
+[ext_resource type="Script" uid="uid://cdst7nt5cxbq1" path="res://recipes/basic_moving_character_2D/BasicMovingCharacter2D.cs" id="1_0foer"]
+
+[node name="BasicMovingCharacter2D" type="CharacterBody2D"]
+collision_layer = 0
+floor_constant_speed = true
+floor_snap_length = 64.0
+script = ExtResource("1_0foer")
