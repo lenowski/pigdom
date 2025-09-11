@@ -8,10 +8,10 @@ public partial class HitArea2D : Area2D
     public delegate void HitLandedEventHandler(int damage);
 
     [Export]
-    public int Damage { get; private set; } = 1;
+    public int Damage { get; set; } = 1;
 
     [Export(PropertyHint.Enum, "Not Player,Player,Neutral")]
-    public string Team { get; private set; } = "Not Player";
+    public string Team { get; set; } = "Not Player";
 
     public override void _Ready()
     {

@@ -9,10 +9,10 @@ public partial class Crate : Node2D
     public delegate void BrokeEventHandler();
 
     [Export]
-    private int _health = 3;
+    public int Health { get; set; } = 3;
 
     [Export]
-    private float _gravity = 4000f;
+    public float Gravity { get; set; } = 4000f;
 
     private AnimationPlayer _animationPlayer;
     private CharacterBody2D _body;
@@ -33,7 +33,7 @@ public partial class Crate : Node2D
     {
         if (!_ray.IsColliding())
         {
-            _body.Velocity = _body.Velocity with { Y = _body.Velocity.Y + _gravity * (float)delta };
+            _body.Velocity = _body.Velocity with { Y = _body.Velocity.Y + Gravity * (float)delta };
         }
 
         _body.MoveAndSlide();
@@ -41,9 +41,9 @@ public partial class Crate : Node2D
 
     private void Damage(int damage)
     {
-        _health -= damage;
+        Health -= damage;
 
-        if (_health < 1)
+        if (Health < 1)
         {
             CallDeferred(MethodName.Shatter);
         }

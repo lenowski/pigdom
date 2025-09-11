@@ -5,19 +5,16 @@ namespace Pigdom.Recipes;
 public partial class WallJumpingCharacter2D : PassThroughCharacter2D
 {
     [Export]
-    public Vector2 WallJumpStrength { get; private set; } = new(800, -800);
+    public Vector2 WallJumpStrength { get; set; } = new(800, -800);
 
     [Export]
-    public float SlideGravityFactor { get; private set; } = 0.2f;
+    public float SlideGravityFactor { get; set; } = 0.2f;
 
     [Export]
-    public float HorizontalAcceleration { get; private set; } = 8000.0f;
+    public float HorizontalAcceleration { get; set; } = 8000.0f;
 
     [Export]
-    public float MaxSlideSpeed { get; private set; } = 200f;
-
-    [Export]
-    public float Gravity { get; private set; } = 2000.0f;
+    public float MaxSlideSpeed { get; set; } = 200f;
 
     private WallDetectorRayCast2D _wallDetector;
     private WallState _wallState = WallState.NotOnWall;

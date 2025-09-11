@@ -8,10 +8,10 @@ public partial class HurtArea2D : Area2D
     public delegate void HurtEventHandler(int damage);
 
     [Export]
-    public int Defense { get; private set; } = 0;
+    public int Defense { get; set; } = 0;
 
     [Export(PropertyHint.Enum, "Not Player,Player,Neutral")]
-    public string Team { get; private set; } = "Not Player";
+    public string Team { get; set; } = "Not Player";
 
     public void GetHurt(HitArea2D hitArea)
     {
