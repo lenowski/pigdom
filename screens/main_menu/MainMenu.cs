@@ -8,11 +8,8 @@ public partial class MainMenu : Control
 {
     private const string ControlSettingsFilePath = "user://control_settings.json";
 
-    [Export]
-    public PackedScene StartScene { get; private set; }
-
-    [Export]
-    public PackedScene ControlsScene { get; private set; }
+    public PackedScene _startScene = GD.Load<PackedScene>("uid://ddka8ik4w0y7");
+    private PackedScene _controlsScene = GD.Load<PackedScene>("uid://cwqrdhx25jfox");
 
     private Button _startButton;
     private Button _quitButton;
@@ -20,9 +17,6 @@ public partial class MainMenu : Control
 
     public override void _Ready()
     {
-        StartScene = GD.Load<PackedScene>("res://levels/Level.tscn");
-        ControlsScene = GD.Load<PackedScene>("res://screens/input_remap/InputRemap.tscn");
-
         _startButton = GetNode<Button>("VBoxContainer/StartButton");
         _quitButton = GetNode<Button>("VBoxContainer/QuitButton");
         _controlsButton = GetNode<Button>("VBoxContainer/ControlsButton");
@@ -79,12 +73,12 @@ public partial class MainMenu : Control
 
     private void OnStartButtonPressed()
     {
-        if (StartScene is null)
+        if (_startScene is null)
         {
             GD.PrintErr("StartScene is not assigned.");
             return;
         }
-        GetTree().ChangeSceneToPacked(StartScene);
+        GetTree().ChangeSceneToPacked(_startScene);
     }
 
     private void OnQuitButtonPressed()
@@ -94,11 +88,11 @@ public partial class MainMenu : Control
 
     private void OnControlsButtonPressed()
     {
-        if (ControlsScene is null)
+        if (_controlsScene is null)
         {
             GD.PrintErr("ControlsScene is not assigned.");
             return;
         }
-        GetTree().ChangeSceneToPacked(ControlsScene);
+        GetTree().ChangeSceneToPacked(_controlsScene);
     }
 }

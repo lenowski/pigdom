@@ -8,10 +8,7 @@ public partial class InputRemap : Control
 {
     private const string ControlSettingsFilePath = "user://control_settings.json";
 
-    [Export]
-    public PackedScene MainMenuScene { get; set; } =
-        GD.Load<PackedScene>("res://screens/main_menu/MainMenu.tscn");
-
+    public PackedScene _mainMenuScene = GD.Load<PackedScene>("uid://bpnmgpokt7ayl");
     private Button _backButton;
     private VBoxContainer _remappingContainer;
 
@@ -28,7 +25,7 @@ public partial class InputRemap : Control
     {
         if (TrySaveInputSettings())
         {
-            GetTree().ChangeSceneToPacked(MainMenuScene);
+            GetTree().ChangeSceneToPacked(_mainMenuScene);
         }
     }
 

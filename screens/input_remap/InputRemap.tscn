@@ -226,5 +226,3 @@ label_settings = SubResource("LabelSettings_5o1mo")
 [node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer6" instance=ExtResource("2_w6h4d")]
 layout_mode = 2
 button_group = SubResource("ButtonGroup_s32xe")
-
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

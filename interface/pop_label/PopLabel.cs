@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Pigdom.Interface.PopLabel;
+namespace Pigdom.Interface;
 
 public partial class PopLabel : Node2D
 {

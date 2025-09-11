@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Pigdom.Recipes.InteractiveArea2D;
+namespace Pigdom.Recipes;
 
 public partial class InteractiveArea2D : Area2D
 {

@@ -1,4 +1,5 @@
 using Godot;
+using Pigdom.Game;
 using Pigdom.Recipes;
 
 namespace Pigdom.Actors;
@@ -6,11 +7,12 @@ namespace Pigdom.Actors;
 public partial class BumpingPig : Node2D
 {
     [Export]
-    private int _initialDirection = -1;
+    public int InitialDirection { get; set; }
 
     [Export]
-    private int _maxHealth = 3;
+    public int MaxHealth { get; set; } = 3;
 
+    private ScorePoint _scorePoint;
     private BumpingEnemy2D _body;
     private AnimationPlayer _animationPlayer;
     private Node2D _sprites;
@@ -29,14 +31,15 @@ public partial class BumpingPig : Node2D
 
     public override void _Ready()
     {
+        _scorePoint = GetNode<ScorePoint>("ScorePoint");
         _body = GetNode<BumpingEnemy2D>("BumpingEnemy2D");
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         _sprites = GetNode<Node2D>("BumpingEnemy2D/Sprites");
         _animatedSprites = GetNode<AnimatedSprite2D>("BumpingEnemy2D/Sprites/AnimatedSprite2D");
         _hurtArea2D = GetNode<HurtArea2D>("BumpingEnemy2D/HurtArea2D");
 
-        _health = _maxHealth;
-        _body.Direction = _initialDirection;
+        _health = MaxHealth;
+        _body.Direction = InitialDirection;
 
         _hurtArea2D.Hurt += OnHurtArea2DHurt;
         _animatedSprites.AnimationFinished += OnAnimatedSprite2DAnimationFinished;
@@ -69,6 +72,7 @@ public partial class BumpingPig : Node2D
     {
         _animationPlayer.Play("die");
         _currentState = State.Dead;
+        _scorePoint.IncreaseScore();
     }
 
     private void Hit(int damage)
