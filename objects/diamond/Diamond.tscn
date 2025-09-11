@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://c80fci1r5e5lj"]
+[gd_scene load_steps=18 format=3 uid="uid://c80fci1r5e5lj"]
 
 [ext_resource type="Texture2D" uid="uid://h0o7dw73opgc" path="res://assets/live_and_coins/big_diamond_idle.png" id="1_fumts"]
 [ext_resource type="Script" uid="uid://dyrmw3i28duh0" path="res://objects/diamond/Diamond.cs" id="1_uvvgl"]
 [ext_resource type="PackedScene" uid="uid://bqpj06nn7ioem" path="res://recipes/interactive_area_2D/InteractiveArea2D.tscn" id="2_nd4ue"]
+[ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://game/score/score_point/ScorePoint.tscn" id="4_4vvcd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjdbl"]
 atlas = ExtResource("1_fumts")
@@ -93,6 +94,8 @@ collision_layer = 0
 collision_mask = 3
 can_sleep = false
 script = ExtResource("1_uvvgl")
+
+[node name="ScorePoint" parent="." instance=ExtResource("4_4vvcd")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, 0)
