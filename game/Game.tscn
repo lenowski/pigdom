@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddka8ik4w0y7"]
 
 [ext_resource type="Script" uid="uid://bo832hgj014e4" path="res://game/Game.cs" id="1_7s7it"]
-[ext_resource type="PackedScene" uid="uid://cxkf516021f86" path="res://levels/Level1/Level1.tscn" id="2_r3sxr"]
+[ext_resource type="PackedScene" uid="uid://cxkf516021f86" path="res://levels/level1/Level1.tscn" id="2_r3sxr"]
 [ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://interface/fonts/kenney_thick.ttf" id="2_troow"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bqiny"]

@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxkf516021f86"]
+[gd_scene load_steps=13 format=3 uid="uid://cxkf516021f86"]
 
 [ext_resource type="PackedScene" uid="uid://gcevl1ga7u1w" path="res://levels/Level.tscn" id="1_fph8s"]
+[ext_resource type="PackedScene" uid="uid://bl2kxvy0gos8m" path="res://objects/crate/loot_crate/LootCrate.tscn" id="2_be4tf"]
 [ext_resource type="PackedScene" uid="uid://bo270p7b02xwj" path="res://objects/path_follow_platform/PathFollowPlatform2D.tscn" id="2_btren"]
 [ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://objects/diamond/Diamond.tscn" id="3_1qtke"]
 [ext_resource type="PackedScene" uid="uid://co2jesq7s1cgo" path="res://actors/bumping_pig/BumpingPig.tscn" id="3_vsa4p"]
 [ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://objects/bomb/Bomb.tscn" id="4_of4bt"]
 [ext_resource type="PackedScene" uid="uid://co68v6mfnhdj1" path="res://actors/crate_pig/CratePig.tscn" id="6_y8bfe"]
+[ext_resource type="PackedScene" uid="uid://bcsvkt5s5vjqw" path="res://objects/door/Door.tscn" id="8_tkleq"]
 
 [sub_resource type="Curve2D" id="Curve2D_w8egf"]
 _data = {
@@ -73,6 +75,18 @@ libraries = {
 }
 autoplay = "move"
 
+[node name="Door2" parent="Doors" index="0" instance=ExtResource("8_tkleq")]
+position = Vector2(4124, 1276)
+TargetScene = "uid://cvi2i72xli4d6"
+
+[node name="SecretDoor" parent="Doors" index="1" instance=ExtResource("8_tkleq")]
+position = Vector2(3200, 1276)
+TargetScene = "uid://cvi2i72xli4d6"
+TargetDoor = "SecretDoor"
+
+[node name="Door" parent="Doors" index="2"]
+position = Vector2(432, 1020)
+
 [node name="Bomb" parent="Bombs" index="0" instance=ExtResource("4_of4bt")]
 position = Vector2(3652, 888)
 
@@ -118,6 +132,48 @@ position = Vector2(3892, 732)
 [node name="Diamond11" parent="Diamonds" index="11" instance=ExtResource("3_1qtke")]
 position = Vector2(3156, 608)
 
+[node name="Crate" parent="Crates" index="0" instance=ExtResource("2_be4tf")]
+position = Vector2(812, 1032)
+
+[node name="Crate2" parent="Crates" index="1" instance=ExtResource("2_be4tf")]
+position = Vector2(884, 1032)
+
+[node name="Crate3" parent="Crates" index="2" instance=ExtResource("2_be4tf")]
+position = Vector2(952, 1032)
+
+[node name="Crate4" parent="Crates" index="3" instance=ExtResource("2_be4tf")]
+position = Vector2(2092, 1288)
+
+[node name="Crate5" parent="Crates" index="4" instance=ExtResource("2_be4tf")]
+position = Vector2(2172, 1288)
+
+[node name="Crate6" parent="Crates" index="5" instance=ExtResource("2_be4tf")]
+position = Vector2(2128, 1220)
+
+[node name="Crate7" parent="Crates" index="6" instance=ExtResource("2_be4tf")]
+position = Vector2(2776, 1156)
+
+[node name="Crate8" parent="Crates" index="7" instance=ExtResource("2_be4tf")]
+position = Vector2(2696, 1156)
+
+[node name="Crate9" parent="Crates" index="8" instance=ExtResource("2_be4tf")]
+position = Vector2(2736, 1088)
+
+[node name="Crate10" parent="Crates" index="9" instance=ExtResource("2_be4tf")]
+position = Vector2(3116, 1288)
+
+[node name="Crate11" parent="Crates" index="10" instance=ExtResource("2_be4tf")]
+position = Vector2(3192, 1288)
+
+[node name="Crate12" parent="Crates" index="11" instance=ExtResource("2_be4tf")]
+position = Vector2(3152, 1220)
+
+[node name="Crate13" parent="Crates" index="12" instance=ExtResource("2_be4tf")]
+position = Vector2(3244, 1220)
+
+[node name="Crate14" parent="Crates" index="13" instance=ExtResource("2_be4tf")]
+position = Vector2(4296, 1156)
+
 [node name="BumpingPig" parent="Enemies" index="0" instance=ExtResource("3_vsa4p")]
 position = Vector2(2740, 1256)
 
@@ -135,6 +191,9 @@ position = Vector2(2864, 640)
 
 [node name="CratePig3" parent="Enemies" index="5" instance=ExtResource("6_y8bfe")]
 position = Vector2(2940, 640)
+
+[node name="PopLabels" parent="." index="8"]
+unique_name_in_owner = true
 
 [node name="Camera2D" parent="." index="9"]
 position = Vector2(416, 968)

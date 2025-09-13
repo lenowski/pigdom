@@ -109,6 +109,10 @@ public partial class KingPigPlayer2D : Player2D
         base._UnhandledInput(evnt);
     }
 
+    public void FadeIn() => _animationPlayer.Play("fade_in");
+
+    public void FadeOut() => _animationPlayer.Play("fade_out");
+
     private void OnAnimatedSprite2DAnimationFinished()
     {
         string currentAnimation = _animatedSprites.Animation;
