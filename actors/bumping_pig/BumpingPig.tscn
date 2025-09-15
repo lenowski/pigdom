@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://co2jesq7s1cgo"]
 
-[ext_resource type="Script" uid="uid://c88k00v7hs0r7" path="res://actors/bumping_pig/BumpingPig.cs" id="1_0h3xq"]
-[ext_resource type="PackedScene" uid="uid://dg3cjpcreu77n" path="res://recipes/bumping_enemy_2D/BumpingEnemy2D.tscn" id="1_ymmaj"]
-[ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://game/score/score_point/ScorePoint.tscn" id="2_43efb"]
-[ext_resource type="SpriteFrames" uid="uid://bjyrm70lgm1o2" path="res://actors/bumping_pig/bumping_pig_frames.tres" id="2_a6ife"]
-[ext_resource type="Texture2D" uid="uid://e8bvey5srkuk" path="res://assets/dialogue_boxes/exclamation_marks_in.png" id="3_35cd2"]
-[ext_resource type="Texture2D" uid="uid://dm3qo6rlj8bht" path="res://assets/dialogue_boxes/exclamation_marks_out.png" id="4_caw1t"]
-[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://recipes/hazard_2D/HurtArea2D.tscn" id="5_fo8ao"]
-[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://recipes/hazard_2D/HitArea2D.tscn" id="6_o0xur"]
+[ext_resource type="Script" uid="uid://c88k00v7hs0r7" path="res://actors/bumping_pig/BumpingPig.cs" id="1_43efb"]
+[ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://game/score/score_point/ScorePoint.tscn" id="2_ejf0v"]
+[ext_resource type="PackedScene" uid="uid://dg3cjpcreu77n" path="res://recipes/bumping_enemy_2D/BumpingEnemy2D.tscn" id="3_ik8cb"]
+[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://recipes/hazard_2D/HurtArea2D.tscn" id="4_th0gb"]
+[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://recipes/hazard_2D/HitArea2D.tscn" id="5_ln517"]
+[ext_resource type="SpriteFrames" uid="uid://bjyrm70lgm1o2" path="res://actors/bumping_pig/bumping_pig_frames.tres" id="6_k4xo3"]
+[ext_resource type="Texture2D" uid="uid://e8bvey5srkuk" path="res://assets/dialogue_boxes/exclamation_marks_in.png" id="7_du43b"]
+[ext_resource type="Texture2D" uid="uid://dm3qo6rlj8bht" path="res://assets/dialogue_boxes/exclamation_marks_out.png" id="8_qoh64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmfug"]
 size = Vector2(64, 64)
@@ -19,23 +19,23 @@ size = Vector2(118, 64)
 size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptkfb"]
-atlas = ExtResource("3_35cd2")
+atlas = ExtResource("7_du43b")
 region = Rect2(0, 0, 34, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2num"]
-atlas = ExtResource("3_35cd2")
+atlas = ExtResource("7_du43b")
 region = Rect2(34, 0, 34, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_goufi"]
-atlas = ExtResource("3_35cd2")
+atlas = ExtResource("7_du43b")
 region = Rect2(68, 0, 34, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07xow"]
-atlas = ExtResource("4_caw1t")
+atlas = ExtResource("8_qoh64")
 region = Rect2(0, 0, 34, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_osf2e"]
-atlas = ExtResource("4_caw1t")
+atlas = ExtResource("8_qoh64")
 region = Rect2(34, 0, 34, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p3wuy"]
@@ -289,26 +289,26 @@ _data = {
 }
 
 [node name="BumpingPig" type="Node2D"]
-script = ExtResource("1_0h3xq")
+script = ExtResource("1_43efb")
 
-[node name="ScorePoint" parent="." instance=ExtResource("2_43efb")]
+[node name="ScorePoint" parent="." instance=ExtResource("2_ejf0v")]
 rotation = -0.00185533
 
-[node name="BumpingEnemy2D" parent="." instance=ExtResource("1_ymmaj")]
+[node name="BumpingEnemy2D" parent="." instance=ExtResource("3_ik8cb")]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D"]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_bmfug")
 
-[node name="HurtArea2D" parent="BumpingEnemy2D" instance=ExtResource("5_fo8ao")]
+[node name="HurtArea2D" parent="BumpingEnemy2D" instance=ExtResource("4_th0gb")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/HurtArea2D"]
 position = Vector2(3, -32)
 shape = SubResource("RectangleShape2D_fxfwr")
 debug_color = Color(0, 0.643137, 0.270588, 0.419608)
 
-[node name="HitArea2D" parent="BumpingEnemy2D" instance=ExtResource("6_o0xur")]
+[node name="HitArea2D" parent="BumpingEnemy2D" instance=ExtResource("5_ln517")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/HitArea2D"]
 position = Vector2(0, -32)
@@ -319,7 +319,7 @@ debug_color = Color(0.960784, 0, 0.501961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BumpingEnemy2D/Sprites"]
 scale = Vector2(4, 4)
-sprite_frames = ExtResource("2_a6ife")
+sprite_frames = ExtResource("6_k4xo3")
 animation = &"idle"
 offset = Vector2(-3, -14)
 

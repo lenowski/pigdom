@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddka8ik4w0y7"]
+[gd_scene load_steps=6 format=3 uid="uid://ddka8ik4w0y7"]
 
 [ext_resource type="Script" uid="uid://bo832hgj014e4" path="res://game/Game.cs" id="1_7s7it"]
 [ext_resource type="PackedScene" uid="uid://cxkf516021f86" path="res://levels/level1/Level1.tscn" id="2_r3sxr"]
 [ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://interface/fonts/kenney_thick.ttf" id="2_troow"]
+[ext_resource type="PackedScene" uid="uid://pfe2r4asnxy5" path="res://interface/lives_bar/LivesTextureRect.tscn" id="4_i75et"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bqiny"]
 font = ExtResource("2_troow")
@@ -30,3 +31,9 @@ grow_horizontal = 0
 text = "123456789"
 label_settings = SubResource("LabelSettings_bqiny")
 horizontal_alignment = 2
+
+[node name="LivesTextureRect" parent="InterfaceCanvasLayer" instance=ExtResource("4_i75et")]
+offset_left = 60.0
+offset_top = 14.0
+offset_right = 324.0
+offset_bottom = 174.0

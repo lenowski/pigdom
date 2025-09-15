@@ -8,6 +8,12 @@ public partial class KingPigPlayer2D : Player2D
     [Signal]
     public delegate void DiedEventHandler();
 
+    [Signal]
+    public delegate void LivesIncreasedEventHandler(int amount);
+
+    [Signal]
+    public delegate void LivesDecreasedEventHandler(int amount);
+
     [Export]
     public int Lives { get; private set; } = 3;
 
@@ -135,7 +141,9 @@ public partial class KingPigPlayer2D : Player2D
         SetPhysicsProcess(false);
         SetProcessUnhandledInput(false);
         Direction = 0;
+
         _currentLives -= damage;
+        EmitSignal(SignalName.LivesDecreased, damage);
 
         if (_currentLives < 1)
         {
