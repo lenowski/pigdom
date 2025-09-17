@@ -12,13 +12,13 @@ config_version=5
 
 config/name="pigdom"
 run/main_scene="uid://bpnmgpokt7ayl"
-config/features=PackedStringArray("4.4", "C#", "Mobile")
+config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Score="*res://game/score/Score.tscn"
-TeleportData="*res://objects/door/teleport_data/TeleportData.tscn"
+Score="*res://systems/autoload/score/Score.tscn"
+TeleportData="*res://systems/autoload/teleport_data/TeleportData.tscn"
 
 [display]
 

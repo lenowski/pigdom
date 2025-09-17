@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://chputy0gooffc"]
-
-[ext_resource type="PackedScene" uid="uid://c21v2tcsnb6gs" path="res://recipes/basic_moving_character_2D/BasicMovingCharacter2D.tscn" id="1_xybqm"]
-[ext_resource type="Script" uid="uid://bcdre5xhegbf1" path="res://recipes/pass_through_character_2D/PassThroughCharacter2D.cs" id="2_qyumw"]
-
-[node name="PassThroughCharacter2D" instance=ExtResource("1_xybqm")]
-collision_mask = 3
-script = ExtResource("2_qyumw")
-PassThroughLayers = 2

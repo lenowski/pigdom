@@ -1,104 +1,17 @@
-[gd_scene load_steps=40 format=3 uid="uid://co68v6mfnhdj1"]
+[gd_scene load_steps=28 format=3 uid="uid://co68v6mfnhdj1"]
 
 [ext_resource type="Script" uid="uid://cumbrxfgt70uk" path="res://actors/crate_pig/CratePig.cs" id="1_7enh0"]
-[ext_resource type="Texture2D" uid="uid://dqpcayp46qg6s" path="res://assets/pig_hide_in_the_box/fall.png" id="1_q7yp8"]
-[ext_resource type="Texture2D" uid="uid://n7la0lkikrtm" path="res://assets/pig_hide_in_the_box/grounded.png" id="2_ib30u"]
-[ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://game/score/score_point/ScorePoint.tscn" id="2_sab7d"]
-[ext_resource type="Texture2D" uid="uid://bdnwd5jwty4oa" path="res://assets/pig_hide_in_the_box/jump.png" id="3_k3inl"]
-[ext_resource type="Texture2D" uid="uid://dkwjc3poukef8" path="res://assets/pig_hide_in_the_box/looking_out.png" id="4_u5ccx"]
-[ext_resource type="Texture2D" uid="uid://ynepkmpftudg" path="res://assets/pig_hide_in_the_box/jump_anticipation.png" id="5_5nwj6"]
-[ext_resource type="Texture2D" uid="uid://dln58hdvjoj6q" path="res://assets/box/idle.png" id="6_dvi33"]
-[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://recipes/hazard_2D/HitArea2D.tscn" id="6_ik5hs"]
-[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://recipes/hazard_2D/VisionArea2D.tscn" id="7_knyen"]
-[ext_resource type="Texture2D" uid="uid://co4ia3maub7c4" path="res://assets/box/hit.png" id="8_bf7ni"]
-[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://recipes/hazard_2D/HurtArea2D.tscn" id="9_na48y"]
-[ext_resource type="Texture2D" uid="uid://doss0kkuln6me" path="res://assets/box/box_pieces_2.png" id="10_8nf6e"]
-[ext_resource type="Texture2D" uid="uid://d1hskwupnd6vy" path="res://assets/box/box_pieces_1.png" id="11_otui2"]
-[ext_resource type="Texture2D" uid="uid://i0sucw38laam" path="res://assets/box/box_pieces_3.png" id="12_touw7"]
-[ext_resource type="Texture2D" uid="uid://c8m2s1o5dhnbq" path="res://assets/box/box_pieces_4.png" id="13_qn7lb"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s22lh"]
-atlas = ExtResource("3_k3inl")
-region = Rect2(0, 0, 26, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxkrp"]
-atlas = ExtResource("3_k3inl")
-region = Rect2(26, 0, 26, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_714ij"]
-atlas = ExtResource("4_u5ccx")
-region = Rect2(0, 0, 26, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3m5g6"]
-atlas = ExtResource("4_u5ccx")
-region = Rect2(26, 0, 26, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6nspw"]
-atlas = ExtResource("4_u5ccx")
-region = Rect2(52, 0, 26, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wia6m"]
-atlas = ExtResource("5_5nwj6")
-region = Rect2(0, 0, 26, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tyasa"]
-atlas = ExtResource("5_5nwj6")
-region = Rect2(26, 0, 26, 20)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gvvns"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_q7yp8")
-}],
-"loop": false,
-"name": &"fall",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ib30u")
-}],
-"loop": false,
-"name": &"ground",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s22lh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dxkrp")
-}],
-"loop": false,
-"name": &"jump",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_714ij")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3m5g6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6nspw")
-}],
-"loop": false,
-"name": &"looking",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wia6m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tyasa")
-}],
-"loop": false,
-"name": &"pre-jump",
-"speed": 10.0
-}]
+[ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://interface/hud/score_point/ScorePoint.tscn" id="2_sab7d"]
+[ext_resource type="SpriteFrames" uid="uid://jg734lam04y5" path="res://actors/crate_pig/resources/crate_pig_frames.tres" id="3_umun4"]
+[ext_resource type="Texture2D" uid="uid://dln58hdvjoj6q" path="res://objects/crate/assets/idle.png" id="6_dvi33"]
+[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2D/HitArea2D.tscn" id="6_ik5hs"]
+[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://shared/prefabs/hazard_2D/VisionArea2D.tscn" id="7_knyen"]
+[ext_resource type="Texture2D" uid="uid://co4ia3maub7c4" path="res://objects/crate/assets/hit.png" id="8_bf7ni"]
+[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://shared/prefabs/hazard_2D/HurtArea2D.tscn" id="9_na48y"]
+[ext_resource type="Texture2D" uid="uid://doss0kkuln6me" path="res://objects/crate/assets/box_pieces_2.png" id="10_8nf6e"]
+[ext_resource type="Texture2D" uid="uid://d1hskwupnd6vy" path="res://objects/crate/assets/box_pieces_1.png" id="11_otui2"]
+[ext_resource type="Texture2D" uid="uid://i0sucw38laam" path="res://objects/crate/assets/box_pieces_3.png" id="12_touw7"]
+[ext_resource type="Texture2D" uid="uid://c8m2s1o5dhnbq" path="res://objects/crate/assets/box_pieces_4.png" id="13_qn7lb"]
 
 [sub_resource type="Animation" id="Animation_et5bt"]
 length = 0.001
@@ -683,7 +596,7 @@ Health = 10
 visible = false
 position = Vector2(0, -40)
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_gvvns")
+sprite_frames = ExtResource("3_umun4")
 animation = &"looking"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

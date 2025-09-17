@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg3cjpcreu77n"]
+
+[ext_resource type="PackedScene" uid="uid://c21v2tcsnb6gs" path="res://shared/prefabs/basic_moving_character_2D/BasicMovingCharacter2D.tscn" id="1_c5py1"]
+[ext_resource type="Script" uid="uid://clmbhvlns747x" path="res://shared/prefabs/bumping_enemy_2D/BumpingEnemy2D.cs" id="2_wxr5a"]
+
+[node name="BumpingEnemy2D" instance=ExtResource("1_c5py1")]
+script = ExtResource("2_wxr5a")

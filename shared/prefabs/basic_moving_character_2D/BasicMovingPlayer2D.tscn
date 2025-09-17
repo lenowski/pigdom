@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c76mag0uwv68v"]
+
+[ext_resource type="PackedScene" uid="uid://c21v2tcsnb6gs" path="res://shared/prefabs/basic_moving_character_2D/BasicMovingCharacter2D.tscn" id="1_8uds0"]
+[ext_resource type="Script" uid="uid://d4hlxqxg3lp5v" path="res://shared/prefabs/basic_moving_character_2D/BasicMovingPlayer2D.cs" id="2_85lkx"]
+
+[node name="PlayerCharacter2D" instance=ExtResource("1_8uds0")]
+script = ExtResource("2_85lkx")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bamgnhqh860cw"]
+
+[ext_resource type="Script" uid="uid://2lcc5pk5c8op" path="res://interface/hud/score_point/ScorePoint.cs" id="1_rn4jk"]
+
+[node name="ScorePoint" type="Node2D"]
+script = ExtResource("1_rn4jk")

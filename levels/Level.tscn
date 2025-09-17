@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://gcevl1ga7u1w"]
 
 [ext_resource type="Script" uid="uid://dhy86ecb7hhj6" path="res://levels/Level.cs" id="1_14qqf"]
-[ext_resource type="PackedScene" uid="uid://3am3io3b8img" path="res://areas/InsideCastleTileMap.tscn" id="2_q7pcy"]
+[ext_resource type="PackedScene" uid="uid://3am3io3b8img" path="res://shared/prefabs/inside_castle_tile_map/InsideCastleTileMap.tscn" id="2_q7pcy"]
 [ext_resource type="PackedScene" uid="uid://b6csjxqmlfpn8" path="res://actors/king_pig/KingPigPlayer2D.tscn" id="3_va2pq"]
 [ext_resource type="PackedScene" uid="uid://bcsvkt5s5vjqw" path="res://objects/door/Door.tscn" id="3_vgoat"]
 

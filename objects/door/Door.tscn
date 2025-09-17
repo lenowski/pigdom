@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bcsvkt5s5vjqw"]
 
-[ext_resource type="SpriteFrames" uid="uid://bmb3bimiqii7o" path="res://assets/door/door_frames.tres" id="1_pp2es"]
+[ext_resource type="SpriteFrames" uid="uid://bmb3bimiqii7o" path="res://objects/door/resources/door_frames.tres" id="1_pp2es"]
 [ext_resource type="Script" uid="uid://c2ftf5ftxd3ic" path="res://objects/door/Door.cs" id="1_vn1i6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdbq4"]

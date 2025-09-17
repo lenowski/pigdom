@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqpj06nn7ioem"]
+
+[ext_resource type="Script" uid="uid://diy1vqbt1lsou" path="res://shared/prefabs/interactive_area_2D/InteractiveArea2D.cs" id="1_54v7j"]
+
+[node name="InteractiveArea2D" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_54v7j")

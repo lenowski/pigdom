@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqypq0f7mfab6"]
-
-[ext_resource type="Script" uid="uid://dh5uur373iejk" path="res://recipes/hazard_2D/HitArea2D.cs" id="1_q5djb"]
-
-[node name="HitArea2D" type="Area2D"]
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("1_q5djb")
