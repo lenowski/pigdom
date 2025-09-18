@@ -1,18 +1,25 @@
-using Pigdom.Objects;
+using System.Linq;
+using Godot;
+
+namespace Pigdom.Objects;
 
 public partial class LootCrate : Crate
 {
-    private Loot2D _loot;
+    private Node2D _loots;
 
     public override void _Ready()
     {
-        _loot = GetNode<Loot2D>("CharacterBody2D/Loot2D");
+        _loots = GetNode<Node2D>("Loots");
+
         base._Ready();
     }
 
     protected override void Shatter()
     {
-        _loot.Drop();
         base.Shatter();
+        foreach (var loot in _loots.GetChildren().OfType<Loot>())
+        {
+            loot.Drop();
+        }
     }
 }

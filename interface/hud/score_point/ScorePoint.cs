@@ -1,5 +1,6 @@
 using Godot;
 using Pigdom.Interface;
+using Pigdom.Systems;
 
 namespace Pigdom.Game;
 
@@ -8,11 +9,12 @@ public partial class ScorePoint : Node2D
     [Export]
     public int Amount { get; set; } = 100;
 
-    private PackedScene _popLabelScene = GD.Load<PackedScene>("uid://2ifavtxuttds");
+    private Node2DFactory _factory;
     private Node _popLabels;
 
     public override void _Ready()
     {
+        _factory = GetNode<Node2DFactory>("Node2DFactory");
         _popLabels = FindParent("Level").FindChild("PopLabels");
     }
 
@@ -35,8 +37,7 @@ public partial class ScorePoint : Node2D
 
     private void PopLabel()
     {
-        var popLabel = _popLabelScene.Instantiate<PopLabel>();
-        _popLabels?.AddChild(popLabel);
-        popLabel.Pop(Amount.ToString(), GlobalPosition);
+        if (_factory.Create() is PopLabel popLabel)
+            popLabel.Pop(Amount.ToString(), GlobalPosition);
     }
 }

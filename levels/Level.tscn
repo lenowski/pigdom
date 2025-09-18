@@ -120,6 +120,9 @@ TargetScene = "uid://gcevl1ga7u1w"
 [node name="Bombs" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
+[node name="Hearts" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
 [node name="Diamonds" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
