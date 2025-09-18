@@ -22,9 +22,9 @@ public partial class LivesBar : TextureRect
 
     private void RecoverHearts()
     {
+        _lives += 1;
         var heart = _livesContainer.GetChild<HeartTexture>(_lives - 1);
         heart.Recover();
-        _lives += 1;
     }
 
     public void OnPlayerLivesIncreased(int amount)
