@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh3bv1bj0jmmq"]
+
+[ext_resource type="Script" uid="uid://b3jgxw6rdn74t" path="res://systems/node_2d_factory/Node2DFactory.cs" id="1_jcxqf"]
+
+[node name="Node2DFactory" type="Marker2D"]
+script = ExtResource("1_jcxqf")
