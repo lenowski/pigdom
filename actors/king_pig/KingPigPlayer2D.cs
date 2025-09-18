@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using Pigdom.Recipes;
 
@@ -15,11 +16,30 @@ public partial class KingPigPlayer2D : Player2D
     public delegate void LivesDecreasedEventHandler(int amount);
 
     [Export]
-    public int Lives { get; private set; } = 3;
+    public int Lives
+    {
+        get => _lives;
+        set
+        {
+            int oldLives = _lives;
+            // NOTE: Maximum lives hardcoded to 3, consider making configurable.
+            _lives = Math.Clamp(value, 0, 3);
+
+            if (_lives > oldLives)
+            {
+                EmitSignal(SignalName.LivesIncreased, _lives - oldLives);
+            }
+            else if (_lives < oldLives)
+            {
+                EmitSignal(SignalName.LivesDecreased, oldLives - _lives);
+            }
+        }
+    }
+    private int _lives = 3;
 
     private AnimatedSprite2D _animatedSprites;
     private Node2D _sprites;
-    private int _currentLives;
+
     private Area2D _hitBox;
     private AnimationPlayer _animationPlayer;
     private float _fallSpeed = 0.0f;
@@ -34,8 +54,6 @@ public partial class KingPigPlayer2D : Player2D
         _hitBox = GetNode<Area2D>("HitArea2D");
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         _hurtArea2D = GetNode<HurtArea2D>("HurtArea2D");
-
-        _currentLives = Lives;
 
         _animatedSprites.AnimationFinished += OnAnimatedSprite2DAnimationFinished;
         _hurtArea2D.Hurt += OnHurtArea2DHurt;
@@ -142,10 +160,9 @@ public partial class KingPigPlayer2D : Player2D
         SetProcessUnhandledInput(false);
         Direction = 0;
 
-        _currentLives -= damage;
-        EmitSignal(SignalName.LivesDecreased, damage);
+        Lives -= damage;
 
-        if (_currentLives < 1)
+        if (Lives < 1)
         {
             _animatedSprites.Play("dead");
             _animationPlayer.Play("dead");
