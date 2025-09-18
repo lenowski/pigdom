@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://h0o7dw73opgc" path="res://objects/diamond/assets/big_diamond_idle.png" id="1_fumts"]
 [ext_resource type="Script" uid="uid://dyrmw3i28duh0" path="res://objects/diamond/Diamond.cs" id="1_uvvgl"]
-[ext_resource type="PackedScene" uid="uid://bqpj06nn7ioem" path="res://shared/prefabs/interactive_area_2D/InteractiveArea2D.tscn" id="2_nd4ue"]
+[ext_resource type="PackedScene" uid="uid://bqpj06nn7ioem" path="res://shared/prefabs/interactive_area_2d/InteractiveArea2D.tscn" id="2_nd4ue"]
 [ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://interface/hud/score_point/ScorePoint.tscn" id="4_4vvcd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjdbl"]

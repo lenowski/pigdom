@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://b6csjxqmlfpn8"]
 
-[ext_resource type="PackedScene" uid="uid://datjjcj0av25b" path="res://shared/prefabs/wall_jumping_character_2D/WallJumpingCharacter2D.tscn" id="1_8gxmr"]
+[ext_resource type="PackedScene" uid="uid://datjjcj0av25b" path="res://shared/prefabs/wall_jumping_character_2d/WallJumpingCharacter2D.tscn" id="1_8gxmr"]
 [ext_resource type="Script" uid="uid://do0pr7nabrw4h" path="res://actors/king_pig/KingPigPlayer2D.cs" id="2_1ewy5"]
 [ext_resource type="SpriteFrames" uid="uid://bavfwgk0ajiq" path="res://actors/king_pig/resources/king_pig_frames.tres" id="6_iftfv"]
-[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://shared/prefabs/hazard_2D/VisibleArea2D.tscn" id="7_00d15"]
+[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://shared/prefabs/hazard_2d/VisibleArea2D.tscn" id="7_00d15"]
 [ext_resource type="SpriteFrames" uid="uid://b3kwlknvpnuy5" path="res://shared/resources/dialogue_boxes/interrogation_frames.tres" id="7_jaj1j"]
-[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://shared/prefabs/hazard_2D/HurtArea2D.tscn" id="7_m2gy7"]
-[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2D/HitArea2D.tscn" id="8_6asr8"]
+[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://shared/prefabs/hazard_2d/HurtArea2D.tscn" id="7_m2gy7"]
+[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2d/HitArea2D.tscn" id="8_6asr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7pdo"]
 size = Vector2(64, 80)

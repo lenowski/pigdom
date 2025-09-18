@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ytw04n36owaf"]
 
-[ext_resource type="PackedScene" uid="uid://cy6u3vdwj6o2k" path="res://shared/prefabs/moving_platform_2D/MovingPlatform2D.tscn" id="1_yoecf"]
+[ext_resource type="PackedScene" uid="uid://cy6u3vdwj6o2k" path="res://shared/prefabs/moving_platform_2d/MovingPlatform2D.tscn" id="1_yoecf"]
 [ext_resource type="Texture2D" uid="uid://bvubeecdk7rkl" path="res://shared/assets/textures/tileset/decorations.png" id="2_j6aid"]
 
 [node name="MovingPlatform2D" instance=ExtResource("1_yoecf")]

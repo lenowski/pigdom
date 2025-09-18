@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b5rfrvvl54f7h" path="res://objects/bomb/Bomb.cs" id="1_d0y5c"]
 [ext_resource type="SpriteFrames" uid="uid://ba1g2hmdraiw4" path="res://objects/bomb/resources/bomb_frames.tres" id="2_cf7f1"]
-[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2D/HitArea2D.tscn" id="5_oin8b"]
-[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://shared/prefabs/hazard_2D/VisionArea2D.tscn" id="6_0pju5"]
+[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2d/HitArea2D.tscn" id="5_oin8b"]
+[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://shared/prefabs/hazard_2d/VisionArea2D.tscn" id="6_0pju5"]
 
 [sub_resource type="Animation" id="Animation_c2gw0"]
 length = 0.001

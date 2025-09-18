@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://c88k00v7hs0r7" path="res://actors/bumping_pig/BumpingPig.cs" id="1_43efb"]
 [ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://interface/hud/score_point/ScorePoint.tscn" id="2_ejf0v"]
-[ext_resource type="PackedScene" uid="uid://dg3cjpcreu77n" path="res://shared/prefabs/bumping_enemy_2D/BumpingEnemy2D.tscn" id="3_ik8cb"]
-[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://shared/prefabs/hazard_2D/HurtArea2D.tscn" id="4_th0gb"]
-[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2D/HitArea2D.tscn" id="5_ln517"]
+[ext_resource type="PackedScene" uid="uid://dg3cjpcreu77n" path="res://shared/prefabs/bumping_enemy_2d/BumpingEnemy2D.tscn" id="3_ik8cb"]
+[ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://shared/prefabs/hazard_2d/HurtArea2D.tscn" id="4_th0gb"]
+[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2d/HitArea2D.tscn" id="5_ln517"]
 [ext_resource type="SpriteFrames" uid="uid://bjyrm70lgm1o2" path="res://actors/bumping_pig/resources/bumping_pig_frames.tres" id="6_k4xo3"]
 [ext_resource type="SpriteFrames" uid="uid://c855o3cjmnu1s" path="res://shared/resources/dialogue_boxes/exclamation_marks_frames.tres" id="7_ftjj3"]
 

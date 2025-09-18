@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4tr5hrffgx4g"]
 
-[ext_resource type="PackedScene" uid="uid://cy6u3vdwj6o2k" path="res://shared/prefabs/moving_platform_2D/MovingPlatform2D.tscn" id="1_w8bnl"]
+[ext_resource type="PackedScene" uid="uid://cy6u3vdwj6o2k" path="res://shared/prefabs/moving_platform_2d/MovingPlatform2D.tscn" id="1_w8bnl"]
 
 [node name="PathFollowPlatform2D" type="PathFollow2D"]
 rotates = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://e56m6toaqlmg"]
 
-[ext_resource type="Script" uid="uid://othouupxgw0x" path="res://shared/prefabs/hazard_2D/HurtArea2D.cs" id="1_yffc1"]
+[ext_resource type="Script" uid="uid://othouupxgw0x" path="res://shared/prefabs/hazard_2d/HurtArea2D.cs" id="1_yffc1"]
 
 [node name="HurtArea2D" type="Area2D"]
 collision_layer = 4
