@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://hy58clcilaig"]
+
+[ext_resource type="PackedScene" uid="uid://bb8gxl2ffahsk" path="res://systems/loot/Loot.tscn" id="1_hvpjs"]
+[ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://objects/diamond/Diamond.tscn" id="2_204lv"]
+
+[node name="DiamondLoot" instance=ExtResource("1_hvpjs")]
+DropRate = 0.3
+
+[node name="Node2DFactory" parent="." index="0"]
+ProductPackedScene = ExtResource("2_204lv")
+TargetContainerName = "Diamonds"
