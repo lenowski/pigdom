@@ -4,8 +4,26 @@ namespace Pigdom.Recipes;
 
 public partial class BasicMovingCharacter2D : CharacterBody2D
 {
+    [Signal]
+    public delegate void DirectionChangedEventHandler(int newDirection);
+
+    private int _direction;
+
     [Export]
-    public int Direction { get; set; }
+    public int Direction
+    {
+        get => _direction;
+        set
+        {
+            if (_direction == value)
+            {
+                return;
+            }
+
+            _direction = value;
+            EmitSignal(SignalName.DirectionChanged, _direction);
+        }
+    }
 
     [Export]
     public float Gravity { get; set; } = 2000.0f;
