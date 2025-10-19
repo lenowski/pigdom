@@ -27,9 +27,6 @@ region = Rect2(34, 0, 34, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_vbaqh")
 }, {
 "duration": 1.0,
