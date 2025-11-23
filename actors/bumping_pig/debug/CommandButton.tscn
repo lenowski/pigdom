@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsnc52hgeneoa"]
+
+[ext_resource type="Script" uid="uid://da5mtptrgvob0" path="res://actors/bumping_pig/debug/CommandButton.cs" id="1_qw2p2"]
+
+[node name="CommandButton" type="Button"]
+offset_left = -80.0
+offset_top = 16.0
+offset_right = 82.0
+offset_bottom = 76.0
+text = "Command
+"
+script = ExtResource("1_qw2p2")

@@ -1,13 +1,13 @@
-using System;
 using System.Linq;
 using Godot;
-using Pigdom.Actors.Interfaces;
-using Pigdom.Actors.States;
-using Pigdom.Extensions;
+using Pigdom.Actors.BumpingPig.Commands;
+using Pigdom.Actors.BumpingPig.States;
 using Pigdom.Game;
+using Pigdom.Objects.Bomb;
 using Pigdom.Recipes;
+using Pigdom.Systems;
 
-namespace Pigdom.Actors;
+namespace Pigdom.Actors.BumpingPig;
 
 public partial class BumpingPig : Node2D
 {
@@ -17,118 +17,142 @@ public partial class BumpingPig : Node2D
     [Export]
     public int MaxHealth { get; set; } = 3;
 
-    public IBumpingPigState CurrentState => _stateManager.CurrentState;
-    public int CurrentHealth => _health;
-    public int CurrentDirection => _body.Direction;
+    public BumpingEnemy2D Body { get; private set; }
 
-    public event Action<int> DirectionChanged;
-    public event Action<Area2D> PlayerDetected;
-    public event Action<StringName> AnimationFinished;
+    public Area2D BombVisionArea { get; private set; }
 
-    private BumpingEnemy2D _body;
-    private Area2D _visionArea;
-    private AnimationTree _animationTree;
-    private Node2D _sprites;
-    private ScorePoint _score;
-    private Node _loots;
-    private int _health;
-    private BumpingPigStateManager _stateManager;
+    public AnimationTree AnimationTree { get; private set; }
 
-    public override void _Ready()
+    public Node2D Sprites { get; private set; }
+
+    public Node2DFactory BombFactory { get; private set; }
+
+    public ScorePoint Score { get; private set; }
+
+    public Node Loots { get; private set; }
+
+    public int Health { get; set; }
+
+    public State State
     {
-        var hurtArea = GetNode<HurtArea2D>("BumpingEnemy2D/HurtArea2D");
-
-        _body = GetNode<BumpingEnemy2D>("BumpingEnemy2D");
-        _visionArea = GetNode<Area2D>("BumpingEnemy2D/VisionArea2D");
-        _animationTree = GetNode<AnimationTree>("AnimationTree");
-        _sprites = GetNode<Node2D>("BumpingEnemy2D/Sprites");
-        _score = GetNode<ScorePoint>("BumpingEnemy2D/ScorePoint");
-        _loots = GetNode<Node>("BumpingEnemy2D/Loots");
-
-        _health = MaxHealth;
-        _body.Direction = InitialDirection;
-
-        _stateManager = new BumpingPigStateManager();
-        InitializeStates();
-        _stateManager.TransitionTo<BumpingPigIdleState>();
-
-        hurtArea.Hurt += OnHurtArea2DHurt;
-        _body.DirectionChanged += (direction) => DirectionChanged?.Invoke(direction);
-        _visionArea.AreaEntered += (area) => PlayerDetected?.Invoke(area);
-        _animationTree.AnimationFinished += (animationName) =>
-            AnimationFinished?.Invoke(animationName);
-    }
-
-    public void EnableAnimation(string condition)
-    {
-        _animationTree.EnableCondition(condition);
-    }
-
-    public void DisableAnimation(string condition)
-    {
-        _animationTree.DisableCondition(condition);
-    }
-
-    public void EnablePhysics()
-    {
-        _body.SetPhysicsProcess(true);
-    }
-
-    public void DisablePhysics()
-    {
-        _body.SetPhysicsProcess(false);
-    }
-
-    public void FlipSprite(int direction)
-    {
-        var baseScale = _sprites.Scale;
-
-        _sprites.Scale = direction switch
+        get => _state;
+        set
         {
-            > 0 => baseScale with { X = -1 },
-            < 0 => baseScale with { X = 1 },
-            _ => baseScale,
-        };
-    }
-
-    public void DropLoot()
-    {
-        foreach (var loot in _loots.GetChildren().OfType<Loot>())
-        {
-            loot.Drop();
+            _state?.Exit();
+            if (value is not null)
+            {
+                value.PreviousState = _state;
+            }
+            _state = value;
+            _state?.Enter();
         }
     }
 
-    public void IncreaseScore()
-    {
-        _score.IncreaseScore();
-    }
+    private State _state;
 
-    public void TransitionTo<TState>()
-        where TState : class, IBumpingPigState
+    public override void _Ready()
     {
-        _stateManager.TransitionTo<TState>();
-    }
+        var hurtArea = GetNode<HurtArea2D>("BumpingEnemy2D/Sprites/HurtArea2D");
 
-    public void TransitionTo(IBumpingPigState state)
-    {
-        _stateManager.TransitionTo(state);
+        Body = GetNode<BumpingEnemy2D>("BumpingEnemy2D");
+        AnimationTree = GetNode<AnimationTree>("AnimationTree");
+        Score = GetNode<ScorePoint>("BumpingEnemy2D/ScorePoint");
+        Loots = GetNode<Node>("BumpingEnemy2D/Loots");
+        Sprites = GetNode<Node2D>("BumpingEnemy2D/Sprites");
+        BombVisionArea = GetNode<Area2D>("BumpingEnemy2D/Sprites/BombVisionArea2D");
+        BombFactory = GetNode<Node2DFactory>("BumpingEnemy2D/Sprites/BombFactory");
+
+        Health = MaxHealth;
+        Body.Direction = InitialDirection;
+
+        InitializeStates();
+        InitializeCommands();
+
+        TransitionTo<IdleState>();
+
+        hurtArea.Hurt += OnHurtArea2DHurt;
+        Body.Bumped += OnBumpingEnemy2DBumped;
+
+        Move(InitialDirection);
     }
 
     private void InitializeStates()
     {
         var states = GetNode<Node>("States");
-
-        foreach (var state in states.GetChildren().OfType<IBumpingPigState>())
+        foreach (var state in states.GetChildren().OfType<State>())
         {
             state.Context = this;
-            _stateManager.RegisterState(state);
         }
+    }
+
+    private void InitializeCommands()
+    {
+        var commands = GetNode<Node>("Commands");
+        foreach (var command in commands.GetChildren().OfType<ICommand<BumpingPig>>())
+        {
+            command.Receiver = this;
+        }
+    }
+
+    public void TransitionTo<TState>()
+        where TState : State
+    {
+        var newState = GetNode<TState>($"States/{typeof(TState).Name}");
+        TransitionTo(newState);
+    }
+
+    public void TransitionTo(State state)
+    {
+        State = state;
+    }
+
+    public void Move(int direction)
+    {
+        State.Move(direction);
+    }
+
+    public void Stop()
+    {
+        State.Stop();
+    }
+
+    public void ThrowBomb(Vector2 throwForce)
+    {
+        State.ThrowBomb(throwForce);
+    }
+
+    public void Jump()
+    {
+        State.Jump();
+    }
+
+    public void CancelJump()
+    {
+        State.CancelJump();
+    }
+
+    public void PickBomb(Bomb bomb)
+    {
+        State.PickBomb(bomb);
+    }
+
+    public void Attack()
+    {
+        State.Attack();
+    }
+
+    public void Turn(int direction)
+    {
+        State.Turn(direction);
     }
 
     private void OnHurtArea2DHurt(int damage)
     {
-        _health -= damage;
-        _stateManager.HandleEvent(state => state.GetHurt());
+        State.GetHurt(damage);
+    }
+
+    public void OnBumpingEnemy2DBumped()
+    {
+        State.Turn(Body.Direction);
     }
 }
