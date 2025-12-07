@@ -4,42 +4,42 @@ namespace Pigdom.Interface;
 
 public partial class LivesBar : TextureRect
 {
-    private HBoxContainer _livesContainer;
-    private int _lives;
+  private HBoxContainer _livesContainer;
+  private int _lives;
 
-    public override void _Ready()
-    {
-        _livesContainer = GetNode<HBoxContainer>("LivesBoxContainer");
-        _lives = _livesContainer.GetChildCount();
-    }
+  public override void _Ready()
+  {
+    _livesContainer = GetNode<HBoxContainer>("LivesBoxContainer");
+    _lives = _livesContainer.GetChildCount();
+  }
 
-    private void HitHearts()
-    {
-        var heart = _livesContainer.GetChild<HeartTexture>(_lives - 1);
-        heart.Hit();
-        _lives -= 1;
-    }
+  private void HitHearts()
+  {
+    var heart = _livesContainer.GetChild<HeartTexture>(_lives - 1);
+    heart.Hit();
+    _lives -= 1;
+  }
 
-    private void RecoverHearts()
-    {
-        _lives += 1;
-        var heart = _livesContainer.GetChild<HeartTexture>(_lives - 1);
-        heart.Recover();
-    }
+  private void RecoverHearts()
+  {
+    _lives += 1;
+    var heart = _livesContainer.GetChild<HeartTexture>(_lives - 1);
+    heart.Recover();
+  }
 
-    public void OnPlayerLivesIncreased(int amount)
+  public void OnPlayerLivesIncreased(int amount)
+  {
+    for (int i = 0; i < amount; i++)
     {
-        for (int i = 0; i < amount; i++)
-        {
-            RecoverHearts();
-        }
+      RecoverHearts();
     }
+  }
 
-    public void OnPlayerLivesDecreased(int amount)
+  public void OnPlayerLivesDecreased(int amount)
+  {
+    for (int i = 0; i < amount; i++)
     {
-        for (int i = 0; i < amount; i++)
-        {
-            HitHearts();
-        }
+      HitHearts();
     }
+  }
 }

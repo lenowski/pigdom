@@ -97,7 +97,10 @@ position = Vector2(3652, 888)
 position = Vector2(4040, 763)
 
 [node name="Bomb3" parent="Bombs" index="2" instance=ExtResource("4_of4bt")]
-position = Vector2(2461, 1138)
+position = Vector2(2395, 1134)
+
+[node name="Bomb4" parent="Bombs" index="3" instance=ExtResource("4_of4bt")]
+position = Vector2(2546, 1130)
 
 [node name="Diamond" parent="Diamonds" index="0" instance=ExtResource("3_1qtke")]
 position = Vector2(704, 860)

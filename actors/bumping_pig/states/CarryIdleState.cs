@@ -3,7 +3,7 @@ using Pigdom.Extensions;
 
 namespace Pigdom.Actors.BumpingPig.States;
 
-public partial class IdleBombState : State
+public partial class CarryIdleState : State
 {
     public override void Enter()
     {
@@ -23,13 +23,13 @@ public partial class IdleBombState : State
         Context.TransitionTo<HitState>();
     }
 
-    public override async void ThrowBomb(Vector2 throwForce)
+    public override async void Throw(Vector2 throwForce)
     {
-        Context.TransitionTo<ThrowBombState>();
+        Context.TransitionTo<ThrowState>();
 
         await ToSignal(Context.AnimationTree, AnimationTree.SignalName.AnimationFinished);
 
-        var bomb = Context.BombFactory.Create();
+        var bomb = Context.ThrowableFactory.Create();
         var body = Context.Body;
         var throwDirection = body.GlobalPosition.DirectionTo(bomb.GlobalPosition).X;
 
@@ -46,7 +46,7 @@ public partial class IdleBombState : State
         {
             Turn(direction);
             Context.Body.Direction = direction;
-            Context.TransitionTo<RunBombState>();
+            Context.TransitionTo<CarryRunState>();
         }
     }
 
@@ -68,7 +68,7 @@ public partial class IdleBombState : State
 
         if (newDirection != 0)
         {
-            Context.TransitionTo<RunBombState>();
+            Context.TransitionTo<CarryRunState>();
         }
     }
 }

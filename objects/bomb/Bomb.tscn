@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://btdmowk762lt6"]
+[gd_scene load_steps=13 format=3 uid="uid://btdmowk762lt6"]
 
 [ext_resource type="Script" uid="uid://b5rfrvvl54f7h" path="res://objects/bomb/Bomb.cs" id="1_d0y5c"]
 [ext_resource type="SpriteFrames" uid="uid://ba1g2hmdraiw4" path="res://objects/bomb/resources/bomb_frames.tres" id="2_cf7f1"]
+[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://shared/prefabs/vision_area_2d/VisibleArea2D.tscn" id="5_i61cy"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2d/HitArea2D.tscn" id="5_oin8b"]
-[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://shared/prefabs/hazard_2d/VisionArea2D.tscn" id="6_0pju5"]
+[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://shared/prefabs/vision_area_2d/VisionArea2D.tscn" id="6_0pju5"]
 
 [sub_resource type="Animation" id="Animation_c2gw0"]
 length = 0.001
@@ -91,6 +92,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HitBox2D/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_al83d"]
 resource_name = "explode"
@@ -140,7 +153,7 @@ tracks/3/path = NodePath("HitBox2D/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7667, 1.3),
+"times": PackedFloat32Array(0, 0.7667, 0.9667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -216,7 +229,10 @@ _data = {
 radius = 104.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hi0d8"]
-radius = 48.0
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i61cy"]
+radius = 32.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pefyv"]
 radius = 24.0
@@ -260,6 +276,13 @@ collision_layer = 32
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_hi0d8")
 debug_color = Color(0.65098, 0.517647, 0, 0.419608)
+
+[node name="VisibleArea2D" parent="." instance=ExtResource("5_i61cy")]
+InteractionStrategyFile = "uid://ca3oonojbsh2w"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_i61cy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24)

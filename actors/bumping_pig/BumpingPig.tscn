@@ -1,11 +1,10 @@
-[gd_scene load_steps=97 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene load_steps=95 format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" uid="uid://c88k00v7hs0r7" path="res://actors/bumping_pig/BumpingPig.cs" id="1_43efb"]
 [ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://interface/hud/score_point/ScorePoint.tscn" id="2_ejf0v"]
 [ext_resource type="PackedScene" uid="uid://dg3cjpcreu77n" path="res://shared/prefabs/bumping_enemy_2d/BumpingEnemy2D.tscn" id="3_ik8cb"]
 [ext_resource type="Script" uid="uid://b3jgxw6rdn74t" path="res://systems/node_2d_factory/Node2DFactory.cs" id="4_4wjic"]
 [ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://shared/prefabs/hazard_2d/HurtArea2D.tscn" id="4_th0gb"]
-[ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://objects/bomb/Bomb.tscn" id="5_bbs1n"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2d/HitArea2D.tscn" id="5_ln517"]
 [ext_resource type="SpriteFrames" uid="uid://bjyrm70lgm1o2" path="res://actors/bumping_pig/resources/bumping_pig_frames.tres" id="6_k4xo3"]
 [ext_resource type="SpriteFrames" uid="uid://c855o3cjmnu1s" path="res://shared/resources/dialogue_boxes/exclamation_marks_frames.tres" id="7_ftjj3"]
@@ -19,221 +18,33 @@
 [ext_resource type="Script" uid="uid://c3codoxe5rvvw" path="res://actors/bumping_pig/states/FallState.cs" id="13_a1vhs"]
 [ext_resource type="Script" uid="uid://7eevsn6bi0bs" path="res://actors/bumping_pig/states/HitState.cs" id="13_gbrhf"]
 [ext_resource type="Script" uid="uid://162hl35xi1o4" path="res://actors/bumping_pig/states/DeadState.cs" id="14_ep714"]
-[ext_resource type="Script" uid="uid://2vhrmk4d21io" path="res://actors/bumping_pig/states/IdleBombState.cs" id="17_kw0ge"]
-[ext_resource type="Script" uid="uid://cfmikm01dpsb3" path="res://actors/bumping_pig/states/RunBombState.cs" id="18_i38n7"]
-[ext_resource type="Script" uid="uid://csue1njwk6oot" path="res://actors/bumping_pig/states/PickBombState.cs" id="19_rlim1"]
-[ext_resource type="Script" uid="uid://dry1i7h8na66m" path="res://actors/bumping_pig/states/ThrowBombState.cs" id="20_y1svr"]
+[ext_resource type="Script" uid="uid://2vhrmk4d21io" path="res://actors/bumping_pig/states/CarryIdleState.cs" id="17_kw0ge"]
+[ext_resource type="Script" uid="uid://cfmikm01dpsb3" path="res://actors/bumping_pig/states/CarryRunState.cs" id="18_i38n7"]
+[ext_resource type="Script" uid="uid://csue1njwk6oot" path="res://actors/bumping_pig/states/PickState.cs" id="19_rlim1"]
+[ext_resource type="Script" uid="uid://dry1i7h8na66m" path="res://actors/bumping_pig/states/ThrowState.cs" id="20_y1svr"]
 [ext_resource type="Script" uid="uid://d3pr6ho8xgetx" path="res://actors/bumping_pig/commands/JumpCommand.cs" id="21_pkfax"]
 [ext_resource type="Script" uid="uid://b3runtuomp01c" path="res://actors/bumping_pig/commands/MoveCommand.cs" id="22_yshji"]
 [ext_resource type="Script" uid="uid://i4c3mhhm3y7w" path="res://actors/bumping_pig/commands/StopCommand.cs" id="23_pkfax"]
 [ext_resource type="Script" uid="uid://dxqds4i4ij4uj" path="res://actors/bumping_pig/commands/TurnCommand.cs" id="24_yshji"]
 [ext_resource type="Script" uid="uid://bu2rlesur6odu" path="res://actors/bumping_pig/commands/AttackCommand.cs" id="25_r6i76"]
-[ext_resource type="Script" uid="uid://cyxfni7h1bpfp" path="res://actors/bumping_pig/commands/PickBombCommand.cs" id="26_yshji"]
-[ext_resource type="Script" uid="uid://cylq2gke2ilof" path="res://actors/bumping_pig/commands/ThrowBombCommand.cs" id="27_r6i76"]
+[ext_resource type="Script" uid="uid://cyxfni7h1bpfp" path="res://actors/bumping_pig/commands/PickCommand.cs" id="26_yshji"]
+[ext_resource type="Script" uid="uid://cylq2gke2ilof" path="res://actors/bumping_pig/commands/ThrowCommand.cs" id="27_r6i76"]
 [ext_resource type="Script" uid="uid://diukp7ggl2jn4" path="res://actors/bumping_pig/components/Brain.cs" id="28_bcp0g"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_upvhm"]
-animation = &"hit"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmfug"]
+size = Vector2(64, 64)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_omuvr"]
-animation = &"idle_bomb"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxfwr"]
+size = Vector2(96, 64)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x4xq5"]
-animation = &"run_bomb"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pwn"]
+size = Vector2(56, 80)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_scy65"]
-animation = &"throw_bomb"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftjj3"]
+size = Vector2(96, 63)
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uk0vg"]
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uqrut"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sj1k6"]
-advance_mode = 2
-advance_condition = &"throw_bomb"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ndlv"]
-advance_mode = 2
-advance_condition = &"throw_bomb"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vlrje"]
-advance_mode = 2
-advance_condition = &"hit"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7gebk"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahar6"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djw75"]
-advance_mode = 2
-advance_condition = &"hit"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tsqgf"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_oh152"]
-states/End/position = Vector2(421, 470)
-states/hit/node = SubResource("AnimationNodeAnimation_upvhm")
-states/hit/position = Vector2(421, 321)
-states/idle_bomb/node = SubResource("AnimationNodeAnimation_omuvr")
-states/idle_bomb/position = Vector2(200, 212)
-states/run_bomb/node = SubResource("AnimationNodeAnimation_x4xq5")
-states/run_bomb/position = Vector2(421, 212)
-states/throw_bomb/node = SubResource("AnimationNodeAnimation_scy65")
-states/throw_bomb/position = Vector2(200, 321)
-transitions = ["idle_bomb", "run_bomb", SubResource("AnimationNodeStateMachineTransition_uk0vg"), "run_bomb", "idle_bomb", SubResource("AnimationNodeStateMachineTransition_uqrut"), "idle_bomb", "throw_bomb", SubResource("AnimationNodeStateMachineTransition_sj1k6"), "run_bomb", "throw_bomb", SubResource("AnimationNodeStateMachineTransition_0ndlv"), "throw_bomb", "hit", SubResource("AnimationNodeStateMachineTransition_vlrje"), "hit", "End", SubResource("AnimationNodeStateMachineTransition_7gebk"), "throw_bomb", "End", SubResource("AnimationNodeStateMachineTransition_ahar6"), "run_bomb", "hit", SubResource("AnimationNodeStateMachineTransition_djw75"), "Start", "idle_bomb", SubResource("AnimationNodeStateMachineTransition_tsqgf")]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jq8t3"]
-animation = &"attack"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xgpcs"]
-animation = &"dead"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_euqph"]
-animation = &"fall"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qbt5n"]
-animation = &"hit"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tdn37"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oh152"]
-animation = &"jump"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_57kd0"]
-animation = &"pick_bomb"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1f5oi"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jq8t3"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xgpcs"]
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qbt5n"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tdn37"]
-advance_mode = 2
-advance_condition = &"hit"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1f5oi"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gbrhf"]
-advance_mode = 2
-advance_condition = &"attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ep714"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a1vhs"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kw0ge"]
-advance_mode = 2
-advance_condition = &"hit"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ed77o"]
-advance_mode = 2
-advance_condition = &"hit"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ke3ai"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5aomk"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0lc2d"]
-advance_mode = 2
-advance_condition = &"attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i38n7"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"dead"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oh152"]
-advance_mode = 2
-advance_condition = &"jump"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_euqph"]
-advance_mode = 2
-advance_condition = &"fall"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_57kd0"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_omuvr"]
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x4xq5"]
-advance_mode = 2
-advance_condition = &"jump"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_upvhm"]
-advance_mode = 2
-advance_condition = &"pick_bomb"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_scy65"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jv3ud"]
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h6hh3"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jq8t3"]
-states/End/position = Vector2(619, 264)
-states/Start/position = Vector2(88, 264)
-states/StateMachine/node = SubResource("AnimationNodeStateMachine_oh152")
-states/StateMachine/position = Vector2(339, 16.587387)
-states/attack/node = SubResource("AnimationNodeAnimation_jq8t3")
-states/attack/position = Vector2(200, 372)
-states/dead/node = SubResource("AnimationNodeAnimation_xgpcs")
-states/dead/position = Vector2(619, 372)
-states/fall/node = SubResource("AnimationNodeAnimation_euqph")
-states/fall/position = Vector2(339, 203)
-states/hit/node = SubResource("AnimationNodeAnimation_qbt5n")
-states/hit/position = Vector2(496, 372)
-states/idle/node = SubResource("AnimationNodeAnimation_tdn37")
-states/idle/position = Vector2(200, 264)
-states/jump/node = SubResource("AnimationNodeAnimation_oh152")
-states/jump/position = Vector2(339, 108.58739)
-states/pick_bomb/node = SubResource("AnimationNodeAnimation_57kd0")
-states/pick_bomb/position = Vector2(496, 16.587387)
-states/run/node = SubResource("AnimationNodeAnimation_1f5oi")
-states/run/position = Vector2(496, 264)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jq8t3"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_xgpcs"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_qbt5n"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_tdn37"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_1f5oi"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_gbrhf"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ep714"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_a1vhs"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_kw0ge"), "idle", "hit", SubResource("AnimationNodeStateMachineTransition_ed77o"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_ke3ai"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_5aomk"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_0lc2d"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_i38n7"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_oh152"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_euqph"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_57kd0"), "fall", "run", SubResource("AnimationNodeStateMachineTransition_omuvr"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_x4xq5"), "run", "pick_bomb", SubResource("AnimationNodeStateMachineTransition_upvhm"), "pick_bomb", "StateMachine", SubResource("AnimationNodeStateMachineTransition_scy65"), "StateMachine", "run", SubResource("AnimationNodeStateMachineTransition_jv3ud"), "StateMachine", "idle", SubResource("AnimationNodeStateMachineTransition_h6hh3")]
-graph_offset = Vector2(-74, 268.5874)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbs1n"]
+size = Vector2(384, 64)
 
 [sub_resource type="Animation" id="Animation_5b38s"]
 length = 0.001
@@ -344,6 +155,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-3, -14)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BumpingEnemy2D/Sprites/ThrowVisionArea2D/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ftjj3"]
@@ -722,6 +545,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(-3, -14)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BumpingEnemy2D/Sprites/ThrowVisionArea2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_57kd0"]
 resource_name = "jump"
@@ -896,6 +731,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(2, -13)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BumpingEnemy2D/Sprites/ThrowVisionArea2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_upvhm"]
 resource_name = "throw_bomb"
@@ -953,48 +800,212 @@ _data = {
 &"throw_bomb": SubResource("Animation_upvhm")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmfug"]
-size = Vector2(64, 64)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_upvhm"]
+animation = &"hit"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxfwr"]
-size = Vector2(96, 64)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_omuvr"]
+animation = &"idle_bomb"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pwn"]
-size = Vector2(56, 80)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x4xq5"]
+animation = &"run_bomb"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftjj3"]
-size = Vector2(160, 83)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_scy65"]
+animation = &"throw_bomb"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wjic"]
-size = Vector2(96, 63)
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uk0vg"]
+advance_mode = 2
+advance_condition = &"run"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbs1n"]
-size = Vector2(384, 79.5)
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uqrut"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sj1k6"]
+advance_mode = 2
+advance_condition = &"throw"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ndlv"]
+advance_mode = 2
+advance_condition = &"throw"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vlrje"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7gebk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahar6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djw75"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tsqgf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_oh152"]
+states/End/position = Vector2(421, 470)
+states/hit/node = SubResource("AnimationNodeAnimation_upvhm")
+states/hit/position = Vector2(421, 321)
+states/idle_bomb/node = SubResource("AnimationNodeAnimation_omuvr")
+states/idle_bomb/position = Vector2(200, 212)
+states/run_bomb/node = SubResource("AnimationNodeAnimation_x4xq5")
+states/run_bomb/position = Vector2(421, 212)
+states/throw_bomb/node = SubResource("AnimationNodeAnimation_scy65")
+states/throw_bomb/position = Vector2(200, 321)
+transitions = ["idle_bomb", "run_bomb", SubResource("AnimationNodeStateMachineTransition_uk0vg"), "run_bomb", "idle_bomb", SubResource("AnimationNodeStateMachineTransition_uqrut"), "idle_bomb", "throw_bomb", SubResource("AnimationNodeStateMachineTransition_sj1k6"), "run_bomb", "throw_bomb", SubResource("AnimationNodeStateMachineTransition_0ndlv"), "throw_bomb", "hit", SubResource("AnimationNodeStateMachineTransition_vlrje"), "hit", "End", SubResource("AnimationNodeStateMachineTransition_7gebk"), "throw_bomb", "End", SubResource("AnimationNodeStateMachineTransition_ahar6"), "run_bomb", "hit", SubResource("AnimationNodeStateMachineTransition_djw75"), "Start", "idle_bomb", SubResource("AnimationNodeStateMachineTransition_tsqgf")]
+graph_offset = Vector2(-133, 146)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jq8t3"]
+animation = &"attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xgpcs"]
+animation = &"dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_euqph"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qbt5n"]
+animation = &"hit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tdn37"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oh152"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_57kd0"]
+animation = &"pick_bomb"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1f5oi"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jq8t3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xgpcs"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qbt5n"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tdn37"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1f5oi"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gbrhf"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ep714"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a1vhs"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kw0ge"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ed77o"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ke3ai"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5aomk"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0lc2d"]
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i38n7"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oh152"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_euqph"]
+advance_mode = 2
+advance_condition = &"fall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_57kd0"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_omuvr"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x4xq5"]
+advance_mode = 2
+advance_condition = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_upvhm"]
+advance_mode = 2
+advance_condition = &"pick_bomb"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_scy65"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jv3ud"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h6hh3"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jq8t3"]
+states/End/position = Vector2(619, 264)
+states/Start/position = Vector2(88, 264)
+states/StateMachine/node = SubResource("AnimationNodeStateMachine_oh152")
+states/StateMachine/position = Vector2(339, 16.587387)
+states/attack/node = SubResource("AnimationNodeAnimation_jq8t3")
+states/attack/position = Vector2(200, 372)
+states/dead/node = SubResource("AnimationNodeAnimation_xgpcs")
+states/dead/position = Vector2(619, 372)
+states/fall/node = SubResource("AnimationNodeAnimation_euqph")
+states/fall/position = Vector2(339, 203)
+states/hit/node = SubResource("AnimationNodeAnimation_qbt5n")
+states/hit/position = Vector2(496, 372)
+states/idle/node = SubResource("AnimationNodeAnimation_tdn37")
+states/idle/position = Vector2(200, 264)
+states/jump/node = SubResource("AnimationNodeAnimation_oh152")
+states/jump/position = Vector2(339, 108.58739)
+states/pick_bomb/node = SubResource("AnimationNodeAnimation_57kd0")
+states/pick_bomb/position = Vector2(496, 16.587387)
+states/run/node = SubResource("AnimationNodeAnimation_1f5oi")
+states/run/position = Vector2(496, 264)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jq8t3"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_xgpcs"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_qbt5n"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_tdn37"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_1f5oi"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_gbrhf"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ep714"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_a1vhs"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_kw0ge"), "idle", "hit", SubResource("AnimationNodeStateMachineTransition_ed77o"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_ke3ai"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_5aomk"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_0lc2d"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_i38n7"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_oh152"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_euqph"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_57kd0"), "fall", "run", SubResource("AnimationNodeStateMachineTransition_omuvr"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_x4xq5"), "run", "pick_bomb", SubResource("AnimationNodeStateMachineTransition_upvhm"), "pick_bomb", "StateMachine", SubResource("AnimationNodeStateMachineTransition_scy65"), "StateMachine", "run", SubResource("AnimationNodeStateMachineTransition_jv3ud"), "StateMachine", "idle", SubResource("AnimationNodeStateMachineTransition_h6hh3")]
+graph_offset = Vector2(-105, -43.412598)
 
 [node name="BumpingPig" type="Node2D"]
 script = ExtResource("1_43efb")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_jq8t3")
-advance_expression_base_node = NodePath("..")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/attack = false
-parameters/conditions/dead = false
-parameters/conditions/fall = false
-parameters/conditions/hit = false
-parameters/conditions/idle = false
-parameters/conditions/jump = false
-parameters/conditions/pick_bomb = false
-parameters/conditions/run = false
-parameters/StateMachine/conditions/hit = false
-parameters/StateMachine/conditions/idle = false
-parameters/StateMachine/conditions/run = false
-parameters/StateMachine/conditions/throw_bomb = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_srs4m")
-}
 
 [node name="BumpingEnemy2D" parent="." instance=ExtResource("3_ik8cb")]
 collision_mask = 3
@@ -1009,11 +1020,10 @@ rotation = -0.00185533
 
 [node name="Sprites" type="Node2D" parent="BumpingEnemy2D"]
 
-[node name="BombFactory" type="Marker2D" parent="BumpingEnemy2D/Sprites"]
-position = Vector2(-80, -80)
+[node name="ThrowableFactory" type="Marker2D" parent="BumpingEnemy2D/Sprites"]
+position = Vector2(-80, -88)
 script = ExtResource("4_4wjic")
-ProductPackedScene = ExtResource("5_bbs1n")
-TargetContainerName = "Bombs"
+TargetContainerName = "&"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BumpingEnemy2D/Sprites"]
 scale = Vector2(4, 4)
@@ -1049,34 +1059,27 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/VisionArea2D"]
-position = Vector2(0, -42.5)
+position = Vector2(0, -32.5)
 shape = SubResource("RectangleShape2D_ftjj3")
 debug_color = Color(0.59627324, 0.53930736, 0.2350983, 0.41960785)
-
-[node name="BombVisionArea2D" type="Area2D" parent="BumpingEnemy2D/Sprites"]
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/BombVisionArea2D"]
-position = Vector2(0, -32.5)
-shape = SubResource("RectangleShape2D_4wjic")
 
 [node name="ThrowVisionArea2D" type="Area2D" parent="BumpingEnemy2D/Sprites"]
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/ThrowVisionArea2D"]
-position = Vector2(-192, -40.25)
+position = Vector2(-192, -32)
 shape = SubResource("RectangleShape2D_bbs1n")
+disabled = true
 debug_color = Color(0.5882353, 0.54901963, 0, 0.41960785)
 
 [node name="Loots" type="Node2D" parent="BumpingEnemy2D"]
 
-[node name="DiamondLoot" parent="BumpingEnemy2D/Loots" instance=ExtResource("8_jq8t3")]
-DropRate = 0.5
-
 [node name="HeartLoot" parent="BumpingEnemy2D/Loots" instance=ExtResource("9_xgpcs")]
 DropRate = 0.3
+
+[node name="DiamondLoot" parent="BumpingEnemy2D/Loots" instance=ExtResource("8_jq8t3")]
+DropRate = 0.5
 
 [node name="DebugButtons" type="Node2D" parent="BumpingEnemy2D"]
 
@@ -1134,7 +1137,29 @@ offset_right = 258.0
 offset_bottom = -108.0
 text = "Throw
 "
-CommandPath = NodePath("../../../Commands/ThrowBombCommand")
+CommandPath = NodePath("../../../Commands/ThrowCommand")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_srs4m")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_jq8t3")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/attack = false
+parameters/conditions/dead = false
+parameters/conditions/fall = false
+parameters/conditions/hit = false
+parameters/conditions/idle = false
+parameters/conditions/jump = false
+parameters/conditions/pick_bomb = false
+parameters/conditions/run = false
+parameters/StateMachine/conditions/hit = false
+parameters/StateMachine/conditions/idle = false
+parameters/StateMachine/conditions/run = false
+parameters/StateMachine/conditions/throw = false
 
 [node name="States" type="Node" parent="."]
 
@@ -1159,16 +1184,16 @@ script = ExtResource("13_gbrhf")
 [node name="DeadState" type="Node" parent="States"]
 script = ExtResource("14_ep714")
 
-[node name="IdleBombState" type="Node" parent="States"]
+[node name="CarryIdleState" type="Node" parent="States"]
 script = ExtResource("17_kw0ge")
 
-[node name="RunBombState" type="Node" parent="States"]
+[node name="CarryRunState" type="Node" parent="States"]
 script = ExtResource("18_i38n7")
 
-[node name="PickBombState" type="Node" parent="States"]
+[node name="PickState" type="Node" parent="States"]
 script = ExtResource("19_rlim1")
 
-[node name="ThrowBombState" type="Node" parent="States"]
+[node name="ThrowState" type="Node" parent="States"]
 script = ExtResource("20_y1svr")
 
 [node name="Commands" type="Node" parent="."]
@@ -1198,13 +1223,13 @@ Direction = 1
 [node name="AttackCommand" type="Node" parent="Commands"]
 script = ExtResource("25_r6i76")
 
-[node name="PickBombCommand" type="Node" parent="Commands"]
+[node name="PickCommand" type="Node" parent="Commands"]
 script = ExtResource("26_yshji")
 
-[node name="ThrowBombCommand" type="Node" parent="Commands"]
+[node name="ThrowCommand" type="Node" parent="Commands"]
 script = ExtResource("27_r6i76")
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("28_bcp0g")
-ActorPath = NodePath("../BumpingEnemy2D")
+ActorPath = NodePath("..")
 CommandsPath = NodePath("../Commands")

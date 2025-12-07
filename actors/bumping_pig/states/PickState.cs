@@ -3,13 +3,13 @@ using Pigdom.Extensions;
 
 namespace Pigdom.Actors.BumpingPig.States;
 
-public partial class PickBombState : State
+public partial class PickState : State
 {
     public override async void Enter()
     {
         Context.AnimationTree.EnableCondition("pick_bomb");
         await ToSignal(Context.AnimationTree, AnimationTree.SignalName.AnimationFinished);
-        Context.TransitionTo<RunBombState>();
+        Context.TransitionTo<CarryRunState>();
     }
 
     public override void Exit()

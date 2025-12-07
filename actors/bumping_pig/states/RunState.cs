@@ -1,5 +1,5 @@
+using Godot;
 using Pigdom.Extensions;
-using Pigdom.Objects.Bomb;
 
 namespace Pigdom.Actors.BumpingPig.States;
 
@@ -53,10 +53,10 @@ public partial class RunState : State
         Context.TransitionTo<AttackState>();
     }
 
-    public override void PickBomb(Bomb bomb)
+    public override void Pick(Node2D item)
     {
-        bomb.QueueFree();
-        Context.TransitionTo<PickBombState>();
+        item.QueueFree();
+        Context.TransitionTo<PickState>();
     }
 
     public override void GetHurt(int damage)

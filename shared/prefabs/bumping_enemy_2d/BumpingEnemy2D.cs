@@ -13,13 +13,13 @@ public partial class BumpingEnemy2D : BasicMovingCharacter2D
 
         if (IsOnWall())
         {
-            Bump();
+            // Bump();
             EmitSignal(SignalName.Bumped);
         }
     }
 
-    private void Bump()
-    {
-        Direction *= -1;
-    }
+    // private void Bump()
+    // {
+    //   Direction *= -1;
+    // }
 }

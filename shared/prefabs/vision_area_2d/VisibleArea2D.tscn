@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7hu570y7fyjc"]
+
+[ext_resource type="Script" uid="uid://dmab08a8hu6bv" path="res://shared/prefabs/vision_area_2d/VisibleArea2D.cs" id="1_855yv"]
+
+[node name="VisibleArea2D" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_855yv")
+InteractionStrategyFile = "uid://btpqlhbsv8b58"

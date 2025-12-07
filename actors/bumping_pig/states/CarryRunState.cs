@@ -3,7 +3,7 @@ using Pigdom.Extensions;
 
 namespace Pigdom.Actors.BumpingPig.States;
 
-public partial class RunBombState : State
+public partial class CarryRunState : State
 {
     public override void Enter()
     {
@@ -23,15 +23,15 @@ public partial class RunBombState : State
         Context.TransitionTo<HitState>();
     }
 
-    public override async void ThrowBomb(Vector2 throwForce)
+    public override async void Throw(Vector2 throwForce)
     {
-        Context.TransitionTo<ThrowBombState>();
+        Context.TransitionTo<ThrowState>();
 
         await ToSignal(Context.AnimationTree, AnimationTree.SignalName.AnimationFinished);
 
-        var bomb = Context.BombFactory.Create();
-        var throwDirection = Context.Body.GlobalPosition.DirectionTo(bomb.GlobalPosition).X;
-        if (bomb is RigidBody2D rigidBody)
+        var item = Context.ThrowableFactory.Create();
+        var throwDirection = Context.Body.GlobalPosition.DirectionTo(item.GlobalPosition).X;
+        if (item is RigidBody2D rigidBody)
         {
             throwForce = throwForce with { X = throwForce.X * throwDirection };
             rigidBody.ApplyCentralImpulse(throwForce);
@@ -62,7 +62,7 @@ public partial class RunBombState : State
     public override void Stop()
     {
         Context.Body.Direction = 0;
-        Context.TransitionTo<IdleBombState>();
+        Context.TransitionTo<CarryIdleState>();
     }
 
     private void OnBodyDirectionChanged(int newDirection)
@@ -70,7 +70,7 @@ public partial class RunBombState : State
         Turn(Context.Body.Direction);
         if (newDirection == 0)
         {
-            Context.TransitionTo<IdleBombState>();
+            Context.TransitionTo<CarryIdleState>();
         }
     }
 }

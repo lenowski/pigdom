@@ -2,7 +2,7 @@ using Godot;
 
 namespace Pigdom.Actors.BumpingPig.Commands;
 
-public partial class ThrowBombCommand : Node, ICommand<BumpingPig>, ICommand
+public partial class ThrowCommand : Node, ICommand<BumpingPig>, ICommand
 {
     public Vector2 Impulse = new Vector2(600, -600);
 
@@ -17,6 +17,6 @@ public partial class ThrowBombCommand : Node, ICommand<BumpingPig>, ICommand
 
     public void Execute()
     {
-        Receiver?.ThrowBomb(ThrowForce);
+        Receiver?.Throw(ThrowForce);
     }
 }

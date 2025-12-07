@@ -3,7 +3,6 @@ using Godot;
 using Pigdom.Actors.BumpingPig.Commands;
 using Pigdom.Actors.BumpingPig.States;
 using Pigdom.Game;
-using Pigdom.Objects.Bomb;
 using Pigdom.Recipes;
 using Pigdom.Systems;
 
@@ -19,19 +18,19 @@ public partial class BumpingPig : Node2D
 
     public BumpingEnemy2D Body { get; private set; }
 
-    public Area2D BombVisionArea { get; private set; }
-
     public AnimationTree AnimationTree { get; private set; }
 
     public Node2D Sprites { get; private set; }
 
-    public Node2DFactory BombFactory { get; private set; }
+    public Node2DFactory ThrowableFactory { get; private set; }
 
     public ScorePoint Score { get; private set; }
 
     public Node Loots { get; private set; }
 
     public int Health { get; set; }
+
+    public string PickingItemType { get; set; }
 
     public State State
     {
@@ -59,8 +58,7 @@ public partial class BumpingPig : Node2D
         Score = GetNode<ScorePoint>("BumpingEnemy2D/ScorePoint");
         Loots = GetNode<Node>("BumpingEnemy2D/Loots");
         Sprites = GetNode<Node2D>("BumpingEnemy2D/Sprites");
-        BombVisionArea = GetNode<Area2D>("BumpingEnemy2D/Sprites/BombVisionArea2D");
-        BombFactory = GetNode<Node2DFactory>("BumpingEnemy2D/Sprites/BombFactory");
+        ThrowableFactory = GetNode<Node2DFactory>("BumpingEnemy2D/Sprites/ThrowableFactory");
 
         Health = MaxHealth;
         Body.Direction = InitialDirection;
@@ -116,9 +114,9 @@ public partial class BumpingPig : Node2D
         State.Stop();
     }
 
-    public void ThrowBomb(Vector2 throwForce)
+    public void Throw(Vector2 throwForce)
     {
-        State.ThrowBomb(throwForce);
+        State.Throw(throwForce);
     }
 
     public void Jump()
@@ -131,9 +129,9 @@ public partial class BumpingPig : Node2D
         State.CancelJump();
     }
 
-    public void PickBomb(Bomb bomb)
+    public void Pick(Node2D item)
     {
-        State.PickBomb(bomb);
+        State.Pick(item);
     }
 
     public void Attack()
@@ -151,6 +149,7 @@ public partial class BumpingPig : Node2D
         State.GetHurt(damage);
     }
 
+    //TODO: To be deleted?
     public void OnBumpingEnemy2DBumped()
     {
         State.Turn(Body.Direction);

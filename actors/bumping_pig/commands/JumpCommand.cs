@@ -4,15 +4,15 @@ namespace Pigdom.Actors.BumpingPig.Commands;
 
 public partial class JumpCommand : Node, ICommand<BumpingPig>, ICommand
 {
-    public BumpingPig Receiver { get; set; }
+  public BumpingPig Receiver { get; set; }
 
-    public void Execute()
-    {
-        Receiver?.Jump();
-    }
+  public void Execute()
+  {
+    Receiver?.Jump();
+  }
 
-    public void Undo()
-    {
-        Receiver?.CancelJump();
-    }
+  public void Undo()
+  {
+    Receiver?.CancelJump();
+  }
 }

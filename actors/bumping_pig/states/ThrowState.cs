@@ -3,7 +3,7 @@ using Pigdom.Extensions;
 
 namespace Pigdom.Actors.BumpingPig.States;
 
-public partial class ThrowBombState : State
+public partial class ThrowState : State
 {
     private int _previousDirection = 1;
 
@@ -11,7 +11,7 @@ public partial class ThrowBombState : State
     {
         _previousDirection = Context.Body.Direction;
         Context.Body.Direction = 0;
-        Context.AnimationTree.EnableCondition("throw_bomb");
+        Context.AnimationTree.EnableCondition("throw");
 
         await ToSignal(Context.AnimationTree, AnimationTree.SignalName.AnimationFinished);
 
@@ -27,7 +27,7 @@ public partial class ThrowBombState : State
 
     public override void Exit()
     {
-        Context.AnimationTree.DisableCondition("throw_bomb");
+        Context.AnimationTree.DisableCondition("throw");
         Context.AnimationTree.SetConditionPath("parameters/conditions");
         Context.Body.Direction = _previousDirection;
     }
