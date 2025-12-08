@@ -4,62 +4,62 @@ namespace Pigdom.Actors.KingPig;
 
 public partial class Player2D : Recipes.WallJumpingCharacter2D
 {
-  private const string MoveLeftAction = "move_left";
-  private const string MoveRightAction = "move_right";
-  private const string MoveDownAction = "move_down";
-  private const string JumpAction = "jump";
+    private const string MoveLeftAction = "move_left";
+    private const string MoveRightAction = "move_right";
+    private const string MoveDownAction = "move_down";
+    private const string JumpAction = "jump";
 
-  public override void _UnhandledInput(InputEvent evnt)
-  {
-    HandleHorizontalMovement(evnt);
-    HandleVerticalMovement(evnt);
-  }
-
-  private void HandleHorizontalMovement(InputEvent evnt)
-  {
-    var newDirection = GetHorizontalDirection(evnt);
-    if (newDirection.HasValue)
+    public override void _UnhandledInput(InputEvent evnt)
     {
-      Direction = newDirection.Value;
-    }
-  }
-
-  private int? GetHorizontalDirection(InputEvent evnt)
-  {
-    if (evnt.IsAction(MoveLeftAction))
-    {
-      return evnt.IsPressed() ? -1 : (Input.IsActionPressed(MoveRightAction) ? 1 : 0);
+        HandleHorizontalMovement(evnt);
+        HandleVerticalMovement(evnt);
     }
 
-    if (evnt.IsAction(MoveRightAction))
+    private void HandleHorizontalMovement(InputEvent evnt)
     {
-      return evnt.IsPressed() ? 1 : (Input.IsActionPressed(MoveLeftAction) ? -1 : 0);
+        var newDirection = GetHorizontalDirection(evnt);
+        if (newDirection.HasValue)
+        {
+            Direction = newDirection.Value;
+        }
     }
 
-    return null;
-  }
+    private int? GetHorizontalDirection(InputEvent evnt)
+    {
+        if (evnt.IsAction(MoveLeftAction))
+        {
+            return evnt.IsPressed() ? -1 : (Input.IsActionPressed(MoveRightAction) ? 1 : 0);
+        }
 
-  private void HandleVerticalMovement(InputEvent evnt)
-  {
-    if (evnt.IsActionPressed(JumpAction))
-    {
-      if (Input.IsActionPressed(MoveDownAction))
-      {
-        EnablePassThrough();
-      }
-      else
-      {
-        Jump();
-      }
-    }
-    else if (evnt.IsActionReleased(JumpAction))
-    {
-      CancelJump();
+        if (evnt.IsAction(MoveRightAction))
+        {
+            return evnt.IsPressed() ? 1 : (Input.IsActionPressed(MoveLeftAction) ? -1 : 0);
+        }
+
+        return null;
     }
 
-    if (evnt.IsActionReleased(MoveDownAction))
+    private void HandleVerticalMovement(InputEvent evnt)
     {
-      DisablePassThrough();
+        if (evnt.IsActionPressed(JumpAction))
+        {
+            if (Input.IsActionPressed(MoveDownAction))
+            {
+                EnablePassThrough();
+            }
+            else
+            {
+                Jump();
+            }
+        }
+        else if (evnt.IsActionReleased(JumpAction))
+        {
+            CancelJump();
+        }
+
+        if (evnt.IsActionReleased(MoveDownAction))
+        {
+            DisablePassThrough();
+        }
     }
-  }
 }

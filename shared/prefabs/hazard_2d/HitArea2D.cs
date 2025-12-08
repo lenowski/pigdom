@@ -4,35 +4,35 @@ namespace Pigdom.Recipes;
 
 public partial class HitArea2D : Area2D
 {
-  [Signal]
-  public delegate void HitLandedEventHandler(int damage);
+    [Signal]
+    public delegate void HitLandedEventHandler(int damage);
 
-  [Export]
-  public int Damage { get; set; } = 1;
+    [Export]
+    public int Damage { get; set; } = 1;
 
-  [Export(PropertyHint.Enum, "Not Player,Player,Neutral")]
-  public string Team { get; set; } = "Not Player";
+    [Export(PropertyHint.Enum, "Not Player,Player,Neutral")]
+    public string Team { get; set; } = "Not Player";
 
-  public override void _Ready()
-  {
-    AreaEntered += OnAreaEntered;
-  }
-
-  public void Hit(HurtArea2D hurtArea)
-  {
-    if (hurtArea.Team != Team)
+    public override void _Ready()
     {
-      var finalDamage = Mathf.Max(0, Damage - hurtArea.Defense);
-      EmitSignal(SignalName.HitLanded, finalDamage);
-      hurtArea.GetHurt(this);
+        AreaEntered += OnAreaEntered;
     }
-  }
 
-  private void OnAreaEntered(Area2D area2D)
-  {
-    if (area2D is HurtArea2D hurtArea)
+    public void Hit(HurtArea2D hurtArea)
     {
-      Hit(hurtArea);
+        if (hurtArea.Team != Team)
+        {
+            var finalDamage = Mathf.Max(0, Damage - hurtArea.Defense);
+            EmitSignal(SignalName.HitLanded, finalDamage);
+            hurtArea.GetHurt(this);
+        }
     }
-  }
+
+    private void OnAreaEntered(Area2D area2D)
+    {
+        if (area2D is HurtArea2D hurtArea)
+        {
+            Hit(hurtArea);
+        }
+    }
 }

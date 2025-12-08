@@ -4,31 +4,31 @@ namespace Pigdom.Recipes;
 
 public partial class WallDetectorRayCast2D : RayCast2D
 {
-  [Signal]
-  public delegate void WallEnteredEventHandler();
+    [Signal]
+    public delegate void WallEnteredEventHandler();
 
-  [Signal]
-  public delegate void WallExitedEventHandler();
+    [Signal]
+    public delegate void WallExitedEventHandler();
 
-  public bool WallColliding { get; set; } = false;
+    public bool WallColliding { get; set; } = false;
 
-  public override void _PhysicsProcess(double delta)
-  {
-    if (IsColliding())
+    public override void _PhysicsProcess(double delta)
     {
-      if (!WallColliding)
-      {
-        EmitSignal(SignalName.WallEntered);
-      }
-      WallColliding = true;
+        if (IsColliding())
+        {
+            if (!WallColliding)
+            {
+                EmitSignal(SignalName.WallEntered);
+            }
+            WallColliding = true;
+        }
+        else
+        {
+            if (WallColliding)
+            {
+                EmitSignal(SignalName.WallExited);
+                WallColliding = false;
+            }
+        }
     }
-    else
-    {
-      if (WallColliding)
-      {
-        EmitSignal(SignalName.WallExited);
-        WallColliding = false;
-      }
-    }
-  }
 }

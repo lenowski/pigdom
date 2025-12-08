@@ -4,13 +4,13 @@ namespace Pigdom.Actors.BumpingPig.Commands;
 
 public interface ICommand
 {
-  void Execute();
+    void Execute();
 
-  void Undo() { }
+    void Undo() { }
 }
 
 public interface ICommand<T> : ICommand
     where T : Node
 {
-  T Receiver { get; set; }
+    T Receiver { get; set; }
 }
