@@ -1,5 +1,6 @@
 using Godot;
 using Pigdom.Actors.BumpingPig.Commands;
+using Pigdom.Actors.BumpingPig.Strategies;
 using Pigdom.Recipes;
 
 namespace Pigdom.Actors.BumpingPig.Components;
