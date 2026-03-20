@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bl2kxvy0gos8m"]
 
 [ext_resource type="PackedScene" uid="uid://trvjobk3jg3t" path="res://objects/crate/Crate.tscn" id="1_umkrp"]
-[ext_resource type="Script" uid="uid://dyomn3t7vd0hh" path="res://objects/crate/variants/LootCrate.cs" id="2_jtva5"]
+[ext_resource type="Script" uid="uid://dyomn3t7vd0hh" path="res://objects/crate/variants/loot_crate/LootCrate.cs" id="2_jtva5"]
 [ext_resource type="PackedScene" uid="uid://hy58clcilaig" path="res://systems/loot/variants/DiamondLoot.tscn" id="3_ix2wa"]
 [ext_resource type="PackedScene" uid="uid://cos5jdt3sjp01" path="res://systems/loot/variants/HeartLoot.tscn" id="4_0861f"]
 
