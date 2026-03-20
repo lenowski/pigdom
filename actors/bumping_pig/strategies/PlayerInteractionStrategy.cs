@@ -1,5 +1,7 @@
 using Pigdom.Actors.BumpingPig.States;
 
+namespace Pigdom.Actors.BumpingPig.Strategies;
+
 public partial class PlayerInteractionStrategy : InteractionStrategy
 {
     public override void Execute()

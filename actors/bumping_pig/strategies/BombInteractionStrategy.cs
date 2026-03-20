@@ -1,5 +1,7 @@
 using Godot;
 
+namespace Pigdom.Actors.BumpingPig.Strategies;
+
 public partial class BombInteractionStrategy : InteractionStrategy
 {
     public override void Execute()

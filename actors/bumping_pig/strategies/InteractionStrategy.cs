@@ -1,6 +1,8 @@
 using Godot;
 using Pigdom.Actors.BumpingPig.Components;
 
+namespace Pigdom.Actors.BumpingPig.Strategies;
+
 public abstract partial class InteractionStrategy : Node
 {
     public Brain Context { get; set; }
