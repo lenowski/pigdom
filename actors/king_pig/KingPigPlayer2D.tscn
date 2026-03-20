@@ -320,62 +320,60 @@ func _unhandled_input(event):
 			play(\"out\")
 "
 
-[node name="PlayerCharacter2D" instance=ExtResource("1_8gxmr")]
+[node name="PlayerCharacter2D" unique_id=228571309 instance=ExtResource("1_8gxmr")]
 script = ExtResource("2_1ewy5")
 Lives = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1991802507]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_w7pdo")
 
-[node name="VisibleArea2D" parent="." index="2" instance=ExtResource("7_00d15")]
+[node name="VisibleArea2D" parent="." index="2" unique_id=89542230 instance=ExtResource("7_00d15")]
 InteractionStrategyFile = "uid://cyd0ywvnf84tk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D" index="0" unique_id=1864398965]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_8nkay")
 debug_color = Color(0.662745, 0.513726, 0, 0.419608)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-libraries = {
-&"": SubResource("AnimationLibrary_qu8rq")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1196107849]
+libraries/ = SubResource("AnimationLibrary_qu8rq")
 
-[node name="InteractionArea2D" type="Area2D" parent="." index="4"]
+[node name="InteractionArea2D" type="Area2D" parent="." index="4" unique_id=1547431513]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D" index="0" unique_id=610133196]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_w7pdo")
 
-[node name="HurtArea2D" parent="." index="5" instance=ExtResource("7_m2gy7")]
+[node name="HurtArea2D" parent="." index="5" unique_id=782885739 instance=ExtResource("7_m2gy7")]
 Team = "Player"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea2D" index="0" unique_id=367893012]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_w7pdo")
 debug_color = Color(0.188235, 0.643137, 0, 0.419608)
 
-[node name="HitArea2D" parent="." index="6" instance=ExtResource("8_6asr8")]
+[node name="HitArea2D" parent="." index="6" unique_id=751864564 instance=ExtResource("8_6asr8")]
 Team = "Player"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D" index="0" unique_id=1289887898]
 position = Vector2(48, -72)
 shape = SubResource("RectangleShape2D_naeet")
 disabled = true
 debug_color = Color(0.960784, 0, 0.509804, 0.419608)
 
-[node name="Sprites" type="Node2D" parent="." index="7"]
+[node name="Sprites" type="Node2D" parent="." index="7" unique_id=1770998621]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites" index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites" index="0" unique_id=1824063224]
 position = Vector2(0, -56)
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("6_iftfv")
 animation = &"idle"
 flip_h = true
 
-[node name="InterrogationAnimatedSprite2D" type="AnimatedSprite2D" parent="." index="8"]
+[node name="InterrogationAnimatedSprite2D" type="AnimatedSprite2D" parent="." index="8" unique_id=686653865]
 position = Vector2(0, -112)
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("7_jaj1j")

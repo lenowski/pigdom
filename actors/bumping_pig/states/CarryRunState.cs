@@ -33,6 +33,9 @@ public partial class CarryRunState : State
         var throwDirection = Context.Body.GlobalPosition.DirectionTo(item.GlobalPosition).X;
         if (item is RigidBody2D rigidBody)
         {
+            var collisionShape = rigidBody.GetNode<CollisionShape2D>("CollisionShape2D");
+            rigidBody.Freeze = false;
+            collisionShape.OneWayCollision = false;
             throwForce = throwForce with { X = throwForce.X * throwDirection };
             rigidBody.ApplyCentralImpulse(throwForce);
         }

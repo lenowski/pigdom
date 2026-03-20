@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cxk6elm786ou3"]
+
+[ext_resource type="PackedScene" uid="uid://trvjobk3jg3t" path="res://objects/crate/Crate.tscn" id="1_2a3qn"]
+[ext_resource type="Script" uid="uid://dg12srnwmciki" path="res://objects/crate/variants/throw_crate/ThrowCrate.cs" id="2_mtld6"]
+[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://shared/prefabs/hazard_2d/HitArea2D.tscn" id="3_2fynb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwnwp"]
+size = Vector2(86, 70)
+
+[node name="ThrowCrate" unique_id=1980189068 instance=ExtResource("1_2a3qn")]
+script = ExtResource("2_mtld6")
+
+[node name="HitArea2D" parent="." index="3" unique_id=1703990879 instance=ExtResource("3_2fynb")]
+Team = "Neutral"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D" index="0" unique_id=777696149]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_uwnwp")
+debug_color = Color(0.6329551, 0.52675176, 0.12257057, 0.41960785)

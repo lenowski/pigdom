@@ -225,6 +225,9 @@ _data = {
 &"explode": SubResource("Animation_al83d")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pefyv"]
+radius = 24.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_u38js"]
 radius = 104.0
 
@@ -234,63 +237,57 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_i61cy"]
 radius = 32.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pefyv"]
-radius = 24.0
-
-[node name="Bomb" type="RigidBody2D"]
+[node name="Bomb" type="RigidBody2D" unique_id=1662059869]
 collision_layer = 0
 collision_mask = 3
 sleeping = true
 script = ExtResource("1_d0y5c")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_0c7lj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1855031935]
+libraries/ = SubResource("AnimationLibrary_0c7lj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1653967667]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_pefyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1703441338]
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("2_cf7f1")
 animation = &"off"
 offset = Vector2(0, -11)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="AnimatedSprite2D"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="AnimatedSprite2D" unique_id=382970051]
 position = Vector2(0, -12)
 remote_path = NodePath("../../VFX/AnimatedSprite2D")
 update_rotation = false
 update_scale = false
 
-[node name="HitBox2D" parent="." instance=ExtResource("5_oin8b")]
+[node name="HitBox2D" parent="." unique_id=1137198957 instance=ExtResource("5_oin8b")]
 Team = "Neutral"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D" unique_id=688044693]
 position = Vector2(0, -40)
 shape = SubResource("CircleShape2D_u38js")
 disabled = true
 debug_color = Color(0.964706, 0, 0.486275, 0.419608)
 
-[node name="VisionArea2D" parent="." instance=ExtResource("6_0pju5")]
-collision_layer = 32
+[node name="VisionArea2D" parent="." unique_id=830617946 instance=ExtResource("6_0pju5")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea2D" unique_id=876378785]
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_hi0d8")
 debug_color = Color(0.65098, 0.517647, 0, 0.419608)
 
-[node name="VisibleArea2D" parent="." instance=ExtResource("5_i61cy")]
+[node name="VisibleArea2D" parent="." unique_id=1154113549 instance=ExtResource("5_i61cy")]
 InteractionStrategyFile = "uid://ca3oonojbsh2w"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D" unique_id=2069905911]
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_i61cy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -24)
-shape = SubResource("CircleShape2D_pefyv")
+[node name="VFX" type="Node" parent="." unique_id=13064911]
 
-[node name="VFX" type="Node" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VFX"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VFX" unique_id=935488870]
 visible = false
 position = Vector2(0, -48)
 scale = Vector2(4, 4)

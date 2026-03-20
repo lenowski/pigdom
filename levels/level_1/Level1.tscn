@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://cxkf516021f86"]
 
 [ext_resource type="PackedScene" uid="uid://gcevl1ga7u1w" path="res://levels/Level.tscn" id="1_fph8s"]
-[ext_resource type="PackedScene" uid="uid://bl2kxvy0gos8m" path="res://objects/crate/variants/LootCrate.tscn" id="2_be4tf"]
+[ext_resource type="PackedScene" uid="uid://bl2kxvy0gos8m" path="res://objects/crate/variants/loot_crate/LootCrate.tscn" id="2_be4tf"]
 [ext_resource type="PackedScene" uid="uid://bo270p7b02xwj" path="res://objects/platforms/PathFollowPlatform2D.tscn" id="2_btren"]
 [ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://objects/diamond/Diamond.tscn" id="3_1qtke"]
 [ext_resource type="PackedScene" uid="uid://co2jesq7s1cgo" path="res://actors/bumping_pig/BumpingPig.tscn" id="3_vsa4p"]
 [ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://objects/bomb/Bomb.tscn" id="4_of4bt"]
 [ext_resource type="PackedScene" uid="uid://co68v6mfnhdj1" path="res://actors/crate_pig/CratePig.tscn" id="6_y8bfe"]
+[ext_resource type="PackedScene" uid="uid://b3d0620yg0nuj" path="res://objects/crate/variants/pick_crate/PickCrate.tscn" id="7_qwynh"]
 [ext_resource type="PackedScene" uid="uid://bcsvkt5s5vjqw" path="res://objects/door/Door.tscn" id="8_tkleq"]
 
 [sub_resource type="Curve2D" id="Curve2D_w8egf"]
@@ -53,7 +54,7 @@ _data = {
 &"move": SubResource("Animation_y8t6x")
 }
 
-[node name="Level" instance=ExtResource("1_fph8s")]
+[node name="Level" unique_id=1202686743 instance=ExtResource("1_fph8s")]
 metadata/_edit_horizontal_guides_ = [220.0, 1472.0]
 metadata/_edit_vertical_guides_ = [0.0, 4540.0]
 
@@ -66,23 +67,21 @@ layer_1/tile_data = PackedInt32Array(327687, 131074, 3, 393223, 131074, 4, 32768
 layer_2/tile_data = PackedInt32Array(262160, 65538, 1, 327696, 65538, 2, 393232, 65538, 2, 458768, 65538, 3, 262162, 65538, 1, 327698, 65538, 2, 393234, 65538, 2, 458770, 65538, 3, 262173, 65538, 1, 327709, 65538, 2, 393245, 65538, 2, 458781, 65538, 3)
 layer_3/tile_data = PackedInt32Array(458758, 131074, 1, 458759, 262146, 1, 524304, 131074, 1, 524305, 196610, 1, 524306, 196610, 1, 524307, 196610, 1, 524308, 196610, 1, 524309, 262146, 1, 589840, 131074, 1, 589841, 196610, 1, 589842, 196610, 1, 589843, 196610, 1, 589844, 196610, 1, 589845, 262146, 1, 458780, 131074, 2, 458781, 262146, 2, 393234, 262146, 2, 393233, 196610, 2, 393232, 131074, 2, 458765, 327682, 2, 327702, 131074, 2, 327703, 196610, 2, 327704, 196610, 2, 327705, 262146, 2)
 
-[node name="Path2D" type="Path2D" parent="Platforms" index="0"]
+[node name="Path2D" type="Path2D" parent="Platforms" index="0" unique_id=2129286613]
 curve = SubResource("Curve2D_w8egf")
 
-[node name="PathFollowPlatform2D" parent="Platforms/Path2D" index="0" instance=ExtResource("2_btren")]
+[node name="PathFollowPlatform2D" parent="Platforms/Path2D" index="0" unique_id=1192932784 instance=ExtResource("2_btren")]
 position = Vector2(3456, 1120)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Path2D" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_gcfyf")
-}
-autoplay = "move"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Path2D" index="1" unique_id=1486813110]
+libraries/ = SubResource("AnimationLibrary_gcfyf")
+autoplay = &"move"
 
-[node name="Door2" parent="Doors" index="0" instance=ExtResource("8_tkleq")]
+[node name="Door2" parent="Doors" index="0" unique_id=1407702474 instance=ExtResource("8_tkleq")]
 position = Vector2(4124, 1276)
 TargetScene = "uid://cvi2i72xli4d6"
 
-[node name="SecretDoor" parent="Doors" index="1" instance=ExtResource("8_tkleq")]
+[node name="SecretDoor" parent="Doors" index="1" unique_id=1943998867 instance=ExtResource("8_tkleq")]
 position = Vector2(3200, 1276)
 TargetScene = "uid://cvi2i72xli4d6"
 TargetDoor = "SecretDoor"
@@ -90,113 +89,128 @@ TargetDoor = "SecretDoor"
 [node name="Door" parent="Doors" index="2"]
 position = Vector2(432, 1020)
 
-[node name="Bomb" parent="Bombs" index="0" instance=ExtResource("4_of4bt")]
+[node name="Bomb" parent="Bombs" index="0" unique_id=606969169 instance=ExtResource("4_of4bt")]
 position = Vector2(3652, 888)
 
-[node name="Bomb2" parent="Bombs" index="1" instance=ExtResource("4_of4bt")]
+[node name="Bomb2" parent="Bombs" index="1" unique_id=1439880920 instance=ExtResource("4_of4bt")]
 position = Vector2(4040, 763)
 
-[node name="Bomb3" parent="Bombs" index="2" instance=ExtResource("4_of4bt")]
-position = Vector2(2395, 1134)
+[node name="Bomb3" parent="Bombs" index="2" unique_id=1447349062 instance=ExtResource("4_of4bt")]
+position = Vector2(2348, 1132)
 
-[node name="Bomb4" parent="Bombs" index="3" instance=ExtResource("4_of4bt")]
-position = Vector2(2546, 1130)
-
-[node name="Diamond" parent="Diamonds" index="0" instance=ExtResource("3_1qtke")]
+[node name="Diamond" parent="Diamonds" index="0" unique_id=372083836 instance=ExtResource("3_1qtke")]
 position = Vector2(704, 860)
 
-[node name="Diamond12" parent="Diamonds" index="1" instance=ExtResource("3_1qtke")]
+[node name="Diamond12" parent="Diamonds" index="1" unique_id=1549723228 instance=ExtResource("3_1qtke")]
 position = Vector2(1052, 860)
 
-[node name="Diamond2" parent="Diamonds" index="2" instance=ExtResource("3_1qtke")]
+[node name="Diamond2" parent="Diamonds" index="2" unique_id=373746685 instance=ExtResource("3_1qtke")]
 position = Vector2(2136, 736)
 
-[node name="Diamond3" parent="Diamonds" index="3" instance=ExtResource("3_1qtke")]
+[node name="Diamond3" parent="Diamonds" index="3" unique_id=1791374611 instance=ExtResource("3_1qtke")]
 position = Vector2(2236, 732)
 
-[node name="Diamond4" parent="Diamonds" index="4" instance=ExtResource("3_1qtke")]
+[node name="Diamond4" parent="Diamonds" index="4" unique_id=1994109802 instance=ExtResource("3_1qtke")]
 position = Vector2(2328, 735)
 
-[node name="Diamond5" parent="Diamonds" index="5" instance=ExtResource("3_1qtke")]
+[node name="Diamond5" parent="Diamonds" index="5" unique_id=1642315856 instance=ExtResource("3_1qtke")]
 position = Vector2(4180, 740)
 
-[node name="Diamond6" parent="Diamonds" index="6" instance=ExtResource("3_1qtke")]
+[node name="Diamond6" parent="Diamonds" index="6" unique_id=1437821216 instance=ExtResource("3_1qtke")]
 position = Vector2(4256, 612)
 
-[node name="Diamond7" parent="Diamonds" index="7" instance=ExtResource("3_1qtke")]
+[node name="Diamond7" parent="Diamonds" index="7" unique_id=422327738 instance=ExtResource("3_1qtke")]
 position = Vector2(4316, 612)
 
-[node name="Diamond8" parent="Diamonds" index="8" instance=ExtResource("3_1qtke")]
+[node name="Diamond8" parent="Diamonds" index="8" unique_id=546554751 instance=ExtResource("3_1qtke")]
 position = Vector2(4292, 576)
 
-[node name="Diamond9" parent="Diamonds" index="9" instance=ExtResource("3_1qtke")]
+[node name="Diamond9" parent="Diamonds" index="9" unique_id=698714018 instance=ExtResource("3_1qtke")]
 position = Vector2(3892, 732)
 
-[node name="Diamond10" parent="Diamonds" index="10" instance=ExtResource("3_1qtke")]
+[node name="Diamond10" parent="Diamonds" index="10" unique_id=638260504 instance=ExtResource("3_1qtke")]
 position = Vector2(3892, 732)
 
-[node name="Diamond11" parent="Diamonds" index="11" instance=ExtResource("3_1qtke")]
+[node name="Diamond11" parent="Diamonds" index="11" unique_id=2131079002 instance=ExtResource("3_1qtke")]
 position = Vector2(3156, 608)
 
-[node name="Crate" parent="Crates" index="0" instance=ExtResource("2_be4tf")]
-position = Vector2(812, 1032)
+[node name="Crate" parent="Crates" index="0" unique_id=665120340 instance=ExtResource("2_be4tf")]
+position = Vector2(813, 991)
+freeze = true
 
-[node name="Crate2" parent="Crates" index="1" instance=ExtResource("2_be4tf")]
-position = Vector2(884, 1032)
+[node name="Crate2" parent="Crates" index="1" unique_id=1120292019 instance=ExtResource("2_be4tf")]
+position = Vector2(897, 991)
 
-[node name="Crate3" parent="Crates" index="2" instance=ExtResource("2_be4tf")]
-position = Vector2(952, 1032)
+[node name="Crate3" parent="Crates" index="2" unique_id=227058332 instance=ExtResource("2_be4tf")]
+position = Vector2(981, 991)
+freeze = true
 
-[node name="Crate4" parent="Crates" index="3" instance=ExtResource("2_be4tf")]
-position = Vector2(2092, 1288)
+[node name="Crate4" parent="Crates" index="3" unique_id=212819367 instance=ExtResource("2_be4tf")]
+position = Vector2(2092, 1248)
+freeze = true
 
-[node name="Crate5" parent="Crates" index="4" instance=ExtResource("2_be4tf")]
-position = Vector2(2172, 1288)
+[node name="Crate5" parent="Crates" index="4" unique_id=1224360239 instance=ExtResource("2_be4tf")]
+position = Vector2(2172, 1248)
+freeze = true
 
-[node name="Crate6" parent="Crates" index="5" instance=ExtResource("2_be4tf")]
-position = Vector2(2128, 1220)
+[node name="Crate6" parent="Crates" index="5" unique_id=1824978050 instance=ExtResource("2_be4tf")]
+position = Vector2(2128, 1183)
+freeze = true
 
-[node name="Crate7" parent="Crates" index="6" instance=ExtResource("2_be4tf")]
-position = Vector2(2776, 1156)
+[node name="Crate7" parent="Crates" index="6" unique_id=537772378 instance=ExtResource("2_be4tf")]
+position = Vector2(2774, 1120)
+freeze = true
 
-[node name="Crate8" parent="Crates" index="7" instance=ExtResource("2_be4tf")]
-position = Vector2(2696, 1156)
+[node name="Crate8" parent="Crates" index="7" unique_id=162408109 instance=ExtResource("2_be4tf")]
+position = Vector2(2694, 1120)
+freeze = true
 
-[node name="Crate9" parent="Crates" index="8" instance=ExtResource("2_be4tf")]
-position = Vector2(2736, 1088)
+[node name="Crate9" parent="Crates" index="8" unique_id=549242405 instance=ExtResource("2_be4tf")]
+position = Vector2(2736, 1055)
+freeze = true
 
-[node name="Crate10" parent="Crates" index="9" instance=ExtResource("2_be4tf")]
-position = Vector2(3116, 1288)
+[node name="Crate10" parent="Crates" index="9" unique_id=317696055 instance=ExtResource("2_be4tf")]
+position = Vector2(3116, 1248)
+collision_mask = 1
+freeze = true
 
-[node name="Crate11" parent="Crates" index="10" instance=ExtResource("2_be4tf")]
-position = Vector2(3192, 1288)
+[node name="Crate11" parent="Crates" index="10" unique_id=1055974003 instance=ExtResource("2_be4tf")]
+position = Vector2(3192, 1248)
+collision_mask = 1
+freeze = true
 
-[node name="Crate12" parent="Crates" index="11" instance=ExtResource("2_be4tf")]
-position = Vector2(3152, 1220)
+[node name="Crate12" parent="Crates" index="11" unique_id=932359299 instance=ExtResource("2_be4tf")]
+position = Vector2(3152, 1184)
+freeze = true
 
-[node name="Crate13" parent="Crates" index="12" instance=ExtResource("2_be4tf")]
-position = Vector2(3244, 1220)
+[node name="Crate13" parent="Crates" index="12" unique_id=1178960376 instance=ExtResource("2_be4tf")]
+position = Vector2(3244, 1184)
+freeze = true
 
-[node name="Crate14" parent="Crates" index="13" instance=ExtResource("2_be4tf")]
-position = Vector2(4296, 1156)
+[node name="Crate14" parent="Crates" index="13" unique_id=400605786 instance=ExtResource("2_be4tf")]
+position = Vector2(4296, 1120)
+freeze = true
 
-[node name="BumpingPig" parent="Enemies" index="0" instance=ExtResource("3_vsa4p")]
+[node name="PickableCrate" parent="Crates" index="14" unique_id=1980189068 instance=ExtResource("7_qwynh")]
+position = Vector2(2457, 1112)
+
+[node name="BumpingPig" parent="Enemies" index="0" unique_id=1214208377 instance=ExtResource("3_vsa4p")]
 position = Vector2(2740, 1256)
 
-[node name="BumpingPig2" parent="Enemies" index="1" instance=ExtResource("3_vsa4p")]
+[node name="BumpingPig2" parent="Enemies" index="1" unique_id=1350167341 instance=ExtResource("3_vsa4p")]
 position = Vector2(2235, 1142)
 
-[node name="BumpingPig3" parent="Enemies" index="2" instance=ExtResource("3_vsa4p")]
+[node name="BumpingPig3" parent="Enemies" index="2" unique_id=106780198 instance=ExtResource("3_vsa4p")]
 position = Vector2(3652, 1256)
 
-[node name="CratePig" parent="Enemies" index="3" instance=ExtResource("6_y8bfe")]
-position = Vector2(3268, 1280)
+[node name="CratePig" parent="Enemies" index="3" unique_id=1310921470 instance=ExtResource("6_y8bfe")]
+position = Vector2(3268, 1248)
 
-[node name="CratePig2" parent="Enemies" index="4" instance=ExtResource("6_y8bfe")]
-position = Vector2(2864, 640)
+[node name="CratePig2" parent="Enemies" index="4" unique_id=1332537386 instance=ExtResource("6_y8bfe")]
+position = Vector2(2864, 609)
 
-[node name="CratePig3" parent="Enemies" index="5" instance=ExtResource("6_y8bfe")]
-position = Vector2(2940, 640)
+[node name="CratePig3" parent="Enemies" index="5" unique_id=856184343 instance=ExtResource("6_y8bfe")]
+position = Vector2(2940, 609)
 
 [node name="PopLabels" parent="." index="9"]
 unique_name_in_owner = true

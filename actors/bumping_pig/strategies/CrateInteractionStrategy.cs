@@ -3,7 +3,7 @@ using Pigdom.Actors.BumpingPig.States;
 
 namespace Pigdom.Actors.BumpingPig.Strategies;
 
-public partial class BombInteractionStrategy : InteractionStrategy
+public partial class CrateInteractionStrategy : InteractionStrategy
 {
     public override void Execute()
     {
@@ -13,12 +13,13 @@ public partial class BombInteractionStrategy : InteractionStrategy
         {
             return;
         }
-        Context.PickCommand.Item = InteractedArea.Owner as Node2D;
-        Context.Actor.PickingItemType = "bomb";
+
+        Context.PickCommand.Item = InteractedArea.Owner as RigidBody2D;
+        Context.Actor.PickingItemType = "crate";
         Context.Actor.ThrowableFactory.ProductPackedScene = GD.Load<PackedScene>(
-            "res://objects/bomb/Bomb.tscn"
+            "res://objects/crate/variants/throw_crate/ThrowCrate.tscn"
         );
-        Context.Actor.ThrowableFactory.TargetContainerName = "Bombs";
+        Context.Actor.ThrowableFactory.TargetContainerName = "Crates";
         Context.PickCommand.Execute();
     }
 }

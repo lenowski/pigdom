@@ -69,7 +69,6 @@ public partial class BumpingPig : Node2D
         TransitionTo<IdleState>();
 
         hurtArea.Hurt += OnHurtArea2DHurt;
-        Body.Bumped += OnBumpingEnemy2DBumped;
 
         Move(InitialDirection);
     }
@@ -147,11 +146,5 @@ public partial class BumpingPig : Node2D
     private void OnHurtArea2DHurt(int damage)
     {
         State.GetHurt(damage);
-    }
-
-    //TODO: To be deleted?
-    public void OnBumpingEnemy2DBumped()
-    {
-        State.Turn(Body.Direction);
     }
 }

@@ -600,7 +600,6 @@ sprite_frames = ExtResource("3_umun4")
 animation = &"looking"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -32)
 scale = Vector2(4, 4)
 texture = ExtResource("6_dvi33")
 offset = Vector2(1, 0)
@@ -611,7 +610,6 @@ libraries = {
 }
 
 [node name="HurtBox2D" parent="." instance=ExtResource("9_na48y")]
-position = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2D"]
 shape = SubResource("RectangleShape2D_8rhla")
@@ -659,7 +657,6 @@ process_material = SubResource("ParticleProcessMaterial_72aja")
 [node name="HitBox2D" parent="." instance=ExtResource("6_ik5hs")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2D"]
-position = Vector2(4, -28)
 shape = SubResource("RectangleShape2D_pbopm")
 disabled = true
 debug_color = Color(0.952941, 0, 0.54902, 0.419608)
@@ -667,6 +664,5 @@ debug_color = Color(0.952941, 0, 0.54902, 0.419608)
 [node name="VisionArea2D" parent="." instance=ExtResource("7_knyen")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea2D"]
-position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_fw6s1")
 debug_color = Color(0.65098, 0.521569, 0, 0.419608)
