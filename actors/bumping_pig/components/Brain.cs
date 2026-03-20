@@ -29,11 +29,9 @@ public partial class Brain : Node
     private ICommand<BumpingPig>[] _bumpRightQueue;
 
     private Area2D _throwVisionArea;
-    private Area2D _bombVisionArea;
     private Area2D _visionArea;
 
     private BumpingEnemy2D _body;
-    private bool _isThrowVisionConnected = false;
 
     public override void _Ready()
     {
