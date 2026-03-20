@@ -1,4 +1,5 @@
 using Godot;
+using Pigdom.Actors.BumpingPig.Strategies;
 
 public partial class VisibleArea2D : Area2D
 {
