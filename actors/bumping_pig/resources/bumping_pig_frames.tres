@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=66 format=3 uid="uid://bjyrm70lgm1o2"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bjyrm70lgm1o2"]
 
 [ext_resource type="Texture2D" uid="uid://dddvxo7c4dxdq" path="res://actors/bumping_pig/assets/attack.png" id="1_sbx4o"]
 [ext_resource type="Texture2D" uid="uid://dxqu56phnnhe2" path="res://actors/bumping_pig/assets/dead.png" id="2_lf7ip"]

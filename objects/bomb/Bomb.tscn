@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://btdmowk762lt6"]
+[gd_scene format=3 uid="uid://btdmowk762lt6"]
 
 [ext_resource type="Script" uid="uid://b5rfrvvl54f7h" path="res://objects/bomb/Bomb.cs" id="1_d0y5c"]
 [ext_resource type="SpriteFrames" uid="uid://ba1g2hmdraiw4" path="res://objects/bomb/resources/bomb_frames.tres" id="2_cf7f1"]

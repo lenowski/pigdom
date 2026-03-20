@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://trvjobk3jg3t"]
+[gd_scene format=3 uid="uid://trvjobk3jg3t"]
 
 [ext_resource type="Script" uid="uid://dwsxnmjex773d" path="res://objects/crate/Crate.cs" id="1_5kpge"]
 [ext_resource type="Texture2D" uid="uid://dln58hdvjoj6q" path="res://objects/crate/assets/idle.png" id="1_78fl8"]

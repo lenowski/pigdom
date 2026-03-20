@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=41 format=3 uid="uid://bavfwgk0ajiq"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bavfwgk0ajiq"]
 
 [ext_resource type="Texture2D" uid="uid://6ueix5gk35mm" path="res://actors/king_pig/assets/attack.png" id="1_xkhe2"]
 [ext_resource type="Texture2D" uid="uid://djwyyum774ygc" path="res://actors/king_pig/assets/dead.png" id="2_c6b6m"]

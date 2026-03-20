@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" uid="uid://c88k00v7hs0r7" path="res://actors/bumping_pig/BumpingPig.cs" id="1_43efb"]
 [ext_resource type="PackedScene" uid="uid://bamgnhqh860cw" path="res://interface/hud/score_point/ScorePoint.tscn" id="2_ejf0v"]

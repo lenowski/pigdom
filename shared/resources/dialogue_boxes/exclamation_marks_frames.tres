@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://c855o3cjmnu1s"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://c855o3cjmnu1s"]
 
 [ext_resource type="Texture2D" uid="uid://e8bvey5srkuk" path="res://shared/assets/textures/dialogue_boxes/exclamation_marks_in.png" id="1_t5ktk"]
 [ext_resource type="Texture2D" uid="uid://dm3qo6rlj8bht" path="res://shared/assets/textures/dialogue_boxes/exclamation_marks_out.png" id="2_pc4pu"]

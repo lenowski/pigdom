@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6csjxqmlfpn8"]
+[gd_scene format=3 uid="uid://b6csjxqmlfpn8"]
 
 [ext_resource type="PackedScene" uid="uid://datjjcj0av25b" path="res://shared/prefabs/wall_jumping_character_2d/WallJumpingCharacter2D.tscn" id="1_8gxmr"]
 [ext_resource type="Script" uid="uid://do0pr7nabrw4h" path="res://actors/king_pig/KingPigPlayer2D.cs" id="2_1ewy5"]
