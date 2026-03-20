@@ -4,7 +4,8 @@ namespace Pigdom.Actors.BumpingPig.Commands;
 
 public partial class ThrowCommand : Node, ICommand<BumpingPig>, ICommand
 {
-    public Vector2 Impulse = new Vector2(600, -600);
+    [Export]
+    public Vector2 Impulse { get; set; } = new(600, -600);
 
     public BumpingPig Receiver { get; set; }
 
