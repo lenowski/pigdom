@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://jg734lam04y5"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://jg734lam04y5"]
 
 [ext_resource type="Texture2D" uid="uid://dqpcayp46qg6s" path="res://actors/crate_pig/assets/fall.png" id="1_0dcm8"]
 [ext_resource type="Texture2D" uid="uid://n7la0lkikrtm" path="res://actors/crate_pig/assets/grounded.png" id="2_f212y"]
