@@ -1,5 +1,6 @@
 using Godot;
 using Pigdom.Extensions;
+using Pigdom.Objects.Cannon;
 
 namespace Pigdom.Actors.BumpingPig.States;
 
@@ -57,6 +58,12 @@ public partial class RunState : State
     {
         item.QueueFree();
         Context.TransitionTo<PickState>();
+    }
+
+    public override void Ignite(Cannon cannon)
+    {
+        Context.Cannon = cannon;
+        Context.TransitionTo<IgniteState>();
     }
 
     public override void GetHurt(int damage)

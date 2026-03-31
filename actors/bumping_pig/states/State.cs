@@ -1,4 +1,5 @@
 using Godot;
+using Pigdom.Objects.Cannon;
 
 namespace Pigdom.Actors.BumpingPig.States;
 
@@ -16,6 +17,8 @@ public abstract partial class State : Node
     public virtual void Stop() { }
 
     public virtual void Turn(int direction) { }
+
+    public virtual void Ignite(Cannon cannon) { }
 
     public virtual void Jump() { }
 

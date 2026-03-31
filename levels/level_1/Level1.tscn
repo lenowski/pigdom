@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://objects/diamond/Diamond.tscn" id="3_1qtke"]
 [ext_resource type="PackedScene" uid="uid://co2jesq7s1cgo" path="res://actors/bumping_pig/BumpingPig.tscn" id="3_vsa4p"]
 [ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://objects/bomb/Bomb.tscn" id="4_of4bt"]
+[ext_resource type="PackedScene" uid="uid://cupbfyeu4wxmb" path="res://objects/cannon/Cannon.tscn" id="5_xftkl"]
 [ext_resource type="PackedScene" uid="uid://co68v6mfnhdj1" path="res://actors/crate_pig/CratePig.tscn" id="6_y8bfe"]
 [ext_resource type="PackedScene" uid="uid://b3d0620yg0nuj" path="res://objects/crate/variants/pick_crate/PickCrate.tscn" id="7_qwynh"]
 [ext_resource type="PackedScene" uid="uid://bcsvkt5s5vjqw" path="res://objects/door/Door.tscn" id="8_tkleq"]
@@ -96,7 +97,10 @@ position = Vector2(3652, 888)
 position = Vector2(4040, 763)
 
 [node name="Bomb3" parent="Bombs" index="2" unique_id=1447349062 instance=ExtResource("4_of4bt")]
-position = Vector2(2348, 1132)
+position = Vector2(2944, 1005)
+
+[node name="Cannon" parent="." index="6" unique_id=1628147969 instance=ExtResource("5_xftkl")]
+position = Vector2(3963, 1280)
 
 [node name="Diamond" parent="Diamonds" index="0" unique_id=372083836 instance=ExtResource("3_1qtke")]
 position = Vector2(704, 860)
@@ -192,10 +196,10 @@ position = Vector2(4296, 1120)
 freeze = true
 
 [node name="PickableCrate" parent="Crates" index="14" unique_id=1980189068 instance=ExtResource("7_qwynh")]
-position = Vector2(2457, 1112)
+position = Vector2(2432, 1108)
 
 [node name="BumpingPig" parent="Enemies" index="0" unique_id=1214208377 instance=ExtResource("3_vsa4p")]
-position = Vector2(2740, 1256)
+position = Vector2(2715, 1259)
 
 [node name="BumpingPig2" parent="Enemies" index="1" unique_id=1350167341 instance=ExtResource("3_vsa4p")]
 position = Vector2(2235, 1142)
@@ -212,14 +216,14 @@ position = Vector2(2864, 609)
 [node name="CratePig3" parent="Enemies" index="5" unique_id=856184343 instance=ExtResource("6_y8bfe")]
 position = Vector2(2940, 609)
 
-[node name="PopLabels" parent="." index="9"]
+[node name="PopLabels" parent="." index="10"]
 unique_name_in_owner = true
 
-[node name="Camera2D" parent="." index="10"]
+[node name="Camera2D" parent="." index="11"]
 position = Vector2(416, 968)
 limit_top = 220
 limit_right = 4540
 limit_bottom = 1472
 
-[node name="PlayerCharacter2D" parent="." index="11"]
+[node name="PlayerCharacter2D" parent="." index="12"]
 position = Vector2(416, 968)

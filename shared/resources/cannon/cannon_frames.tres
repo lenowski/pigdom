@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bk6axm18oghxc"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bk6axm18oghxc"]
 
 [ext_resource type="Texture2D" uid="uid://vri64unfx500" path="res://shared/assets/textures/cannon/cannon_idle.png" id="1_hmlky"]
 [ext_resource type="Texture2D" uid="uid://cv3ppa6h3k5h7" path="res://shared/assets/textures/cannon/cannon_shoot.png" id="2_n0r7r"]

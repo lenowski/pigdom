@@ -3,6 +3,7 @@ using Godot;
 using Pigdom.Actors.BumpingPig.Commands;
 using Pigdom.Actors.BumpingPig.States;
 using Pigdom.Game;
+using Pigdom.Objects.Cannon;
 using Pigdom.Recipes;
 using Pigdom.Systems;
 
@@ -31,6 +32,8 @@ public partial class BumpingPig : Node2D
     public int Health { get; set; }
 
     public string PickingItemType { get; set; }
+
+    public Cannon Cannon { get; set; }
 
     public State State
     {
@@ -131,6 +134,11 @@ public partial class BumpingPig : Node2D
     public void Pick(Node2D item)
     {
         State.Pick(item);
+    }
+
+    public void Ignite(Cannon cannon)
+    {
+        State.Ignite(cannon);
     }
 
     public void Attack()

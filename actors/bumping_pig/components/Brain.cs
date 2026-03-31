@@ -21,6 +21,7 @@ public partial class Brain : Node
     public JumpCommand JumpCommand { get; set; }
     public PickCommand PickCommand { get; set; }
     public ThrowCommand ThrowCommand { get; set; }
+    public IgniteCommand IgniteCommand { get; set; }
     public TurnCommand TurnLeftCommand { get; set; }
     public TurnCommand TurnRightCommand { get; set; }
     public MoveCommand MoveLeftCommand { get; set; }
@@ -43,6 +44,7 @@ public partial class Brain : Node
         JumpCommand = _commands.GetNode<JumpCommand>("JumpCommand");
         PickCommand = _commands.GetNode<PickCommand>("PickCommand");
         ThrowCommand = _commands.GetNode<ThrowCommand>("ThrowCommand");
+        IgniteCommand = _commands.GetNode<IgniteCommand>("IgniteCommand");
         TurnLeftCommand = _commands.GetNode<TurnCommand>("TurnLeftCommand");
         TurnRightCommand = _commands.GetNode<TurnCommand>("TurnRightCommand");
         MoveLeftCommand = _commands.GetNode<MoveCommand>("MoveLeftCommand");
