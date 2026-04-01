@@ -1,8 +1,8 @@
 using Godot;
-using Pigdom.Game;
-using Pigdom.Recipes;
+using Pigdom.Interface;
+using Pigdom.Shared.Prefabs;
 
-namespace Pigdom.Actors;
+namespace Pigdom.Actors.CratePig;
 
 public partial class CratePig : Node2D
 {

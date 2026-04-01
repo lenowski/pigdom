@@ -1,6 +1,6 @@
 using Godot;
-using Pigdom.Game;
-using Pigdom.Recipes;
+using Pigdom.Interface;
+using Pigdom.Shared.Prefabs;
 
 namespace Pigdom.Objects;
 

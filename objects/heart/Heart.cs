@@ -1,8 +1,8 @@
 using Godot;
 using Pigdom.Actors.KingPig;
-using Pigdom.Recipes;
+using Pigdom.Shared.Prefabs;
 
-namespace KingsAndPigs.Objects;
+namespace Pigdom.Objects;
 
 public partial class Heart : Node2D
 {

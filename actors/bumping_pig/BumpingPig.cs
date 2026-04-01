@@ -2,9 +2,9 @@ using System.Linq;
 using Godot;
 using Pigdom.Actors.BumpingPig.Commands;
 using Pigdom.Actors.BumpingPig.States;
-using Pigdom.Game;
-using Pigdom.Objects.Cannon;
-using Pigdom.Recipes;
+using Pigdom.Interface;
+using Pigdom.Objects;
+using Pigdom.Shared.Prefabs;
 using Pigdom.Systems;
 
 namespace Pigdom.Actors.BumpingPig;

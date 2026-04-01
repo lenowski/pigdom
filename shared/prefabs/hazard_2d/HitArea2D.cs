@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Pigdom.Recipes;
+namespace Pigdom.Shared.Prefabs;
 
 public partial class HitArea2D : Area2D
 {

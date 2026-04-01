@@ -1,6 +1,6 @@
 using Godot;
-using Pigdom.Extensions;
-using Pigdom.Objects.Cannon;
+using Pigdom.Objects;
+using Pigdom.Shared.Extensions;
 
 namespace Pigdom.Actors.BumpingPig.States;
 

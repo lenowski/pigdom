@@ -1,5 +1,5 @@
 using Godot;
-using Pigdom.Objects.Cannon;
+using Pigdom.Objects;
 
 namespace Pigdom.Actors.BumpingPig.Commands;
 

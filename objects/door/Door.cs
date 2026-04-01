@@ -1,5 +1,7 @@
 using Godot;
-using Pigdom.Objects;
+using Pigdom.Systems;
+
+namespace Pigdom.Objects;
 
 public partial class Door : Node2D
 {

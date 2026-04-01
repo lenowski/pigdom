@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using Godot;
 
-namespace Pigdom.Screens.MainMenu;
+namespace Pigdom.Interface;
 
 public partial class MainMenu : Control
 {

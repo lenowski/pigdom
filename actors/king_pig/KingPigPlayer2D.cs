@@ -1,6 +1,7 @@
 using System;
 using Godot;
-using Pigdom.Recipes;
+using Pigdom.Actors.KingPig.Components;
+using Pigdom.Shared.Prefabs;
 
 namespace Pigdom.Actors.KingPig;
 

@@ -1,8 +1,9 @@
 using Godot;
+using Pigdom.Shared.Prefabs;
 
-namespace Pigdom.Actors.KingPig;
+namespace Pigdom.Actors.KingPig.Components;
 
-public partial class Player2D : Recipes.WallJumpingCharacter2D
+public partial class Player2D : WallJumpingCharacter2D
 {
     private const string MoveLeftAction = "move_left";
     private const string MoveRightAction = "move_right";

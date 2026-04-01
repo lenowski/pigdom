@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Pigdom.Objects.Bomb;
+namespace Pigdom.Objects;
 
 public partial class Bomb : RigidBody2D
 {

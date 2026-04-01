@@ -1,5 +1,5 @@
 using Godot;
-using Pigdom.Recipes;
+using Pigdom.Shared.Prefabs;
 
 namespace Pigdom.Objects;
 

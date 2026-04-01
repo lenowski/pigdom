@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 
-namespace Pigdom.Extensions;
+namespace Pigdom.Shared.Extensions;
 
 public static class AnimationTreeExtensions
 {

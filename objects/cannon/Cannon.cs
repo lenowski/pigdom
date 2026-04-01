@@ -1,7 +1,7 @@
 using Godot;
 using Pigdom.Systems;
 
-namespace Pigdom.Objects.Cannon;
+namespace Pigdom.Objects;
 
 public partial class Cannon : Node2D
 {

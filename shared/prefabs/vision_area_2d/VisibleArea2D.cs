@@ -1,6 +1,8 @@
 using Godot;
 using Pigdom.Actors.BumpingPig.Strategies;
 
+namespace Pigdom.Shared.Prefabs;
+
 public partial class VisibleArea2D : Area2D
 {
     [Export(PropertyHint.File, "*InteractionStrategy.cs")]

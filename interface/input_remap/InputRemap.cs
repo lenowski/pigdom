@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using Godot;
 
-namespace Pigdom.Screens.InputRemap;
+namespace Pigdom.Interface;
 
 public partial class InputRemap : Control
 {

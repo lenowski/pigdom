@@ -1,8 +1,7 @@
 using Godot;
-using Pigdom.Interface;
 using Pigdom.Systems;
 
-namespace Pigdom.Game;
+namespace Pigdom.Interface;
 
 public partial class ScorePoint : Node2D
 {

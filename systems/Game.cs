@@ -2,7 +2,7 @@ using Godot;
 using Pigdom.Actors.KingPig;
 using Pigdom.Interface;
 
-namespace Pigdom.Game;
+namespace Pigdom.Systems;
 
 public partial class Game : Node
 {

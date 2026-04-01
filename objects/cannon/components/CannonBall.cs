@@ -1,7 +1,7 @@
 using Godot;
-using Pigdom.Recipes;
+using Pigdom.Shared.Prefabs;
 
-namespace Pigdom.Objects.Cannon;
+namespace Pigdom.Objects;
 
 public partial class CannonBall : RigidBody2D
 {

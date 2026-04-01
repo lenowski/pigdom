@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Pigdom.Game;
+namespace Pigdom.Systems;
 
 public partial class Score : Node
 {

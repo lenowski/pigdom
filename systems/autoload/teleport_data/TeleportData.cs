@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Pigdom.Objects;
+namespace Pigdom.Systems;
 
 public partial class TeleportData : Node
 {

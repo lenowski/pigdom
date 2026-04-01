@@ -1,5 +1,5 @@
 using Godot;
-using Pigdom.Extensions;
+using Pigdom.Shared.Extensions;
 
 namespace Pigdom.Actors.BumpingPig.States;
 

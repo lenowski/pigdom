@@ -1,7 +1,7 @@
 using System.Linq;
 using Godot;
 
-namespace Pigdom.Recipes;
+namespace Pigdom.Shared.Prefabs;
 
 public partial class InputRemapButton : Button
 {

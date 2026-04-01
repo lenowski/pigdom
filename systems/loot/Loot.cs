@@ -1,5 +1,6 @@
 using Godot;
-using Pigdom.Systems;
+
+namespace Pigdom.Systems;
 
 public partial class Loot : Marker2D
 {
